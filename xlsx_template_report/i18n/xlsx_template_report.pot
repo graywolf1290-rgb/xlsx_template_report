@@ -1,0 +1,1011 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* xlsx_template_report
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 20.0-20261112\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-23 08:18+0000\n"
+"PO-Revision-Date: 2026-11-23 08:18+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: xlsx_template_report
+#: model:ir.module.module,description:base.module_xlsx_template_report
+msgid ""
+"# Excel Template Reports\n"
+"\n"
+"Design a report in your own Excel file — colours, number formats, formulas,\n"
+"PivotTables — and let Odoo fill in the data.\n"
+"\n"
+"* Each data source fills a sheet with the same name, as an Excel table:\n"
+"  `=SUM(sales[amount_total])` keeps working whatever the number of rows.\n"
+"* Records, grouped totals, or read-only SQL (administrators only).\n"
+"* Relative periods: yesterday, last week, month to date, last quarter...\n"
+"* Data is always read with the access rights of the \"Run as\" user.\n"
+"\n"
+"Scheduling and delivery by email or Telegram: **Excel Template Reports Pro**.\n"
+msgstr ""
+
+#. module: xlsx_template_report
+#: model_terms:ir.ui.view,arch_db:xlsx_template_report.xlsx_report_source_view_form
+msgid "(default)"
+msgstr ""
+
+#. module: xlsx_template_report
+#: model_terms:ir.ui.view,arch_db:xlsx_template_report.xlsx_report_view_form
+msgid "<b>How templates work</b>"
+msgstr ""
+
+#. module: xlsx_template_report
+#: model_terms:ir.ui.view,arch_db:xlsx_template_report.xlsx_report_view_form
+msgid "Access"
+msgstr ""
+
+#. module: xlsx_template_report
+#: model:ir.model.fields,field_description:xlsx_template_report.field_xlsx_report__message_needaction
+msgid "Action Needed"
+msgstr ""
+
+#. module: xlsx_template_report
+#: model:ir.model.fields,field_description:xlsx_template_report.field_xlsx_report__active
+msgid "Active"
+msgstr ""
+
+#. module: xlsx_template_report
+#. odoo-python
+#: code:addons/xlsx_template_report/models/xlsx_report.py:0
+msgid "Add a template or at least one data source."
+msgstr ""
+
+#. module: xlsx_template_report
+#: model:ir.model.fields,field_description:xlsx_template_report.field_xlsx_report_source__aggregator
+msgid "Aggregator"
+msgstr ""
+
+#. module: xlsx_template_report
+#: model:ir.model.fields,help:xlsx_template_report.field_xlsx_report_source__name
+msgid ""
+"Also the name of the data sheet and of the Excel table. Use it in formulas, "
+"e.g. =SUM(sales[amount_total]). Letters, digits and _ only."
+msgstr ""
+
+#. module: xlsx_template_report
+#: model_terms:ir.ui.view,arch_db:xlsx_template_report.xlsx_report_view_form
+#: model_terms:ir.ui.view,arch_db:xlsx_template_report.xlsx_report_view_search
+msgid "Archived"
+msgstr ""
+
+#. module: xlsx_template_report
+#: model:ir.model.fields,field_description:xlsx_template_report.field_xlsx_report__message_attachment_count
+msgid "Attachment Count"
+msgstr ""
+
+#. module: xlsx_template_report
+#: model:ir.model.fields,help:xlsx_template_report.field_xlsx_report__filename_pattern
+msgid "Available keys: {report}, {date_from}, {date_to}, {period}, {today}"
+msgstr ""
+
+#. module: xlsx_template_report
+#: model:ir.model.fields.selection,name:xlsx_template_report.selection__xlsx_report_source__aggregator__avg
+msgid "Average"
+msgstr ""
+
+#. module: xlsx_template_report
+#: model:res.groups,comment:xlsx_template_report.group_xlsx_report_sql
+msgid ""
+"Can write raw SQL data sources. SQL ignores record rules and\n"
+"            multi-company restrictions: grant only to people who may read the whole database."
+msgstr ""
+
+#. module: xlsx_template_report
+#: model_terms:ir.ui.view,arch_db:xlsx_template_report.xlsx_report_view_form
+msgid ""
+"Charts and images are removed from generated files. Use PivotTables\n"
+"                                        or conditional formatting instead."
+msgstr ""
+
+#. module: xlsx_template_report
+#. odoo-python
+#: code:addons/xlsx_template_report/models/xlsx_report_source.py:0
+msgid "Choose a model for data source %s."
+msgstr ""
+
+#. module: xlsx_template_report
+#. odoo-python
+#: code:addons/xlsx_template_report/models/xlsx_report_source.py:0
+msgid "Choose at least one 'Group by' field for %s."
+msgstr ""
+
+#. module: xlsx_template_report
+#. odoo-python
+#: code:addons/xlsx_template_report/models/xlsx_report_source.py:0
+msgid "Choose at least one column for data source %s."
+msgstr ""
+
+#. module: xlsx_template_report
+#: model:ir.model.fields,help:xlsx_template_report.field_xlsx_report_source_column__header
+msgid ""
+"Column header in the Excel table. Empty: technical name or label, depending "
+"on the data source setting. Formulas refer to it, e.g. =SUM(sales[Amount])."
+msgstr ""
+
+#. module: xlsx_template_report
+#: model:ir.model.fields,field_description:xlsx_template_report.field_xlsx_report_source__column_ids
+msgid "Columns"
+msgstr ""
+
+#. module: xlsx_template_report
+#. odoo-python
+#: code:addons/xlsx_template_report/models/xlsx_report_source.py:0
+msgid "Columns must belong to the model %s."
+msgstr ""
+
+#. module: xlsx_template_report
+#: model:ir.model.fields,help:xlsx_template_report.field_xlsx_report__company_ids
+msgid ""
+"Companies whose data is included. Limited to the companies of the 'Run as' "
+"user."
+msgstr ""
+
+#. module: xlsx_template_report
+#: model:ir.model.fields,field_description:xlsx_template_report.field_xlsx_report__company_id
+msgid "Company"
+msgstr ""
+
+#. module: xlsx_template_report
+#: model:ir.ui.menu,name:xlsx_template_report.menu_xlsx_report_config
+msgid "Configuration"
+msgstr ""
+
+#. module: xlsx_template_report
+#: model_terms:ir.actions.act_window,help:xlsx_template_report.action_xlsx_report
+msgid "Create your first Excel report"
+msgstr ""
+
+#. module: xlsx_template_report
+#: model:ir.model.fields,field_description:xlsx_template_report.field_xlsx_report__create_uid
+#: model:ir.model.fields,field_description:xlsx_template_report.field_xlsx_report_run__create_uid
+#: model:ir.model.fields,field_description:xlsx_template_report.field_xlsx_report_source__create_uid
+#: model:ir.model.fields,field_description:xlsx_template_report.field_xlsx_report_source_column__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: xlsx_template_report
+#: model:ir.model.fields,field_description:xlsx_template_report.field_xlsx_report__create_date
+#: model:ir.model.fields,field_description:xlsx_template_report.field_xlsx_report_run__create_date
+#: model:ir.model.fields,field_description:xlsx_template_report.field_xlsx_report_source__create_date
+#: model:ir.model.fields,field_description:xlsx_template_report.field_xlsx_report_source_column__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: xlsx_template_report
+#: model:ir.model.fields,field_description:xlsx_template_report.field_xlsx_report__company_ids
+msgid "Data from companies"
+msgstr ""
+
+#. module: xlsx_template_report
+#: model_terms:ir.ui.view,arch_db:xlsx_template_report.xlsx_report_view_form
+msgid ""
+"Data is read with the access rights of <b>Run as</b>. Everyone who receives the\n"
+"                        file sees what that user is allowed to see."
+msgstr ""
+
+#. module: xlsx_template_report
+#: model:ir.model.fields,help:xlsx_template_report.field_xlsx_report__owner_id
+msgid ""
+"Data is read with the access rights of this user. Everyone who receives the "
+"file sees what this user is allowed to see."
+msgstr ""
+
+#. module: xlsx_template_report
+#. odoo-python
+#: code:addons/xlsx_template_report/models/xlsx_report_source.py:0
+msgid "Data source %s returns more than %s groups."
+msgstr ""
+
+#. module: xlsx_template_report
+#. odoo-python
+#: code:addons/xlsx_template_report/models/xlsx_report_source.py:0
+msgid "Data source %s returns more than %s rows."
+msgstr ""
+
+#. module: xlsx_template_report
+#. odoo-python
+#: code:addons/xlsx_template_report/models/xlsx_report_source.py:0
+msgid ""
+"Data source %s returns more than %s rows. Narrow the domain or raise the row"
+" limit."
+msgstr ""
+
+#. module: xlsx_template_report
+#. odoo-python
+#: code:addons/xlsx_template_report/models/xlsx_report_source.py:0
+msgid "Data source names must be unique in a report."
+msgstr ""
+
+#. module: xlsx_template_report
+#: model:ir.model.fields,field_description:xlsx_template_report.field_xlsx_report__source_ids
+#: model_terms:ir.ui.view,arch_db:xlsx_template_report.xlsx_report_view_form
+msgid "Data sources"
+msgstr ""
+
+#. module: xlsx_template_report
+#: model_terms:ir.ui.view,arch_db:xlsx_template_report.xlsx_report_run_view_form
+#: model_terms:ir.ui.view,arch_db:xlsx_template_report.xlsx_report_run_view_list
+msgid "Date"
+msgstr ""
+
+#. module: xlsx_template_report
+#: model:ir.model.fields,field_description:xlsx_template_report.field_xlsx_report_source__date_granularity
+msgid "Date Granularity"
+msgstr ""
+
+#. module: xlsx_template_report
+#: model:ir.model.fields.selection,name:xlsx_template_report.selection__xlsx_report_source__date_granularity__day
+msgid "Day"
+msgstr ""
+
+#. module: xlsx_template_report
+#: model:ir.model.fields,field_description:xlsx_template_report.field_xlsx_report_run__channel_log
+#: model_terms:ir.ui.view,arch_db:xlsx_template_report.xlsx_report_run_view_form
+msgid "Delivery"
+msgstr ""
+
+#. module: xlsx_template_report
+#: model:ir.module.module,summary:base.module_xlsx_template_report
+msgid ""
+"Design reports in your own Excel file: Odoo fills in the data (free). "
+"Scheduling and Email/Telegram delivery: Excel Template Reports Pro"
+msgstr ""
+
+#. module: xlsx_template_report
+#: model_terms:ir.actions.act_window,help:xlsx_template_report.action_xlsx_report
+msgid ""
+"Design the report in Excel, choose the data, and download it filled in."
+msgstr ""
+
+#. module: xlsx_template_report
+#: model:ir.model.fields,field_description:xlsx_template_report.field_xlsx_report__display_name
+#: model:ir.model.fields,field_description:xlsx_template_report.field_xlsx_report_run__display_name
+#: model:ir.model.fields,field_description:xlsx_template_report.field_xlsx_report_source__display_name
+#: model:ir.model.fields,field_description:xlsx_template_report.field_xlsx_report_source_column__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: xlsx_template_report
+#: model:ir.model.fields,field_description:xlsx_template_report.field_xlsx_report_source__domain
+msgid "Domain"
+msgstr ""
+
+#. module: xlsx_template_report
+#: model:ir.model.fields.selection,name:xlsx_template_report.selection__xlsx_report_run__state__done
+msgid "Done"
+msgstr ""
+
+#. module: xlsx_template_report
+#: model_terms:ir.ui.view,arch_db:xlsx_template_report.xlsx_report_run_view_form
+#: model_terms:ir.ui.view,arch_db:xlsx_template_report.xlsx_report_run_view_list
+msgid "Download"
+msgstr ""
+
+#. module: xlsx_template_report
+#: model_terms:ir.ui.view,arch_db:xlsx_template_report.xlsx_report_view_form
+msgid "Download now"
+msgstr ""
+
+#. module: xlsx_template_report
+#: model:ir.model.fields,field_description:xlsx_template_report.field_xlsx_report_run__duration
+msgid "Duration (s)"
+msgstr ""
+
+#. module: xlsx_template_report
+#: model_terms:ir.ui.view,arch_db:xlsx_template_report.xlsx_report_view_form
+msgid ""
+"Each data source fills a sheet with the same name, as an Excel table.\n"
+"                                        Use it in formulas: <code>=SUM(sales[amount_total])</code>."
+msgstr ""
+
+#. module: xlsx_template_report
+#: model_terms:ir.ui.view,arch_db:xlsx_template_report.xlsx_report_run_view_form
+msgid "Error"
+msgstr ""
+
+#. module: xlsx_template_report
+#: model:ir.model.fields,field_description:xlsx_template_report.field_xlsx_report_run__error_message
+msgid "Error Message"
+msgstr ""
+
+#. module: xlsx_template_report
+#: model:ir.model.fields,help:xlsx_template_report.field_xlsx_report__template
+msgid ""
+"Excel (.xlsx) template. Leave empty to get a plain workbook with one sheet "
+"per data source."
+msgstr ""
+
+#. module: xlsx_template_report
+#: model:ir.model,name:xlsx_template_report.model_xlsx_report_source
+msgid "Excel Report Data Source"
+msgstr ""
+
+#. module: xlsx_template_report
+#: model:ir.model,name:xlsx_template_report.model_xlsx_report_source_column
+msgid "Excel Report Data Source Column"
+msgstr ""
+
+#. module: xlsx_template_report
+#: model:ir.model,name:xlsx_template_report.model_xlsx_report_run
+msgid "Excel Report Run"
+msgstr ""
+
+#. module: xlsx_template_report
+#: model:ir.actions.act_window,name:xlsx_template_report.action_xlsx_report
+#: model:ir.module.category,name:xlsx_template_report.module_category_xlsx_report
+#: model:ir.ui.menu,name:xlsx_template_report.menu_xlsx_report
+#: model:ir.ui.menu,name:xlsx_template_report.menu_xlsx_report_root
+#: model:res.groups.privilege,name:xlsx_template_report.res_groups_privilege_xlsx_report
+msgid "Excel Reports"
+msgstr ""
+
+#. module: xlsx_template_report
+#: model:ir.model,name:xlsx_template_report.model_xlsx_report
+msgid "Excel Template Report"
+msgstr ""
+
+#. module: xlsx_template_report
+#: model:ir.module.module,shortdesc:base.module_xlsx_template_report
+msgid "Excel Template Reports"
+msgstr ""
+
+#. module: xlsx_template_report
+#. odoo-python
+#: code:addons/xlsx_template_report/models/xlsx_report.py:0
+msgid "Excel tables: %s"
+msgstr ""
+
+#. module: xlsx_template_report
+#: model:ir.model.fields.selection,name:xlsx_template_report.selection__xlsx_report_run__state__failed
+msgid "Failed"
+msgstr ""
+
+#. module: xlsx_template_report
+#: model:ir.model.fields,field_description:xlsx_template_report.field_xlsx_report_source_column__field_id
+msgid "Field"
+msgstr ""
+
+#. module: xlsx_template_report
+#. odoo-python
+#: code:addons/xlsx_template_report/models/xlsx_report_source.py:0
+msgid "Field %s no longer exists."
+msgstr ""
+
+#. module: xlsx_template_report
+#: model:ir.model.fields.selection,name:xlsx_template_report.selection__xlsx_report_source__header_mode__label
+msgid "Field label"
+msgstr ""
+
+#. module: xlsx_template_report
+#: model:ir.model.fields,field_description:xlsx_template_report.field_xlsx_report_run__attachment_id
+msgid "File"
+msgstr ""
+
+#. module: xlsx_template_report
+#: model:ir.model.fields,field_description:xlsx_template_report.field_xlsx_report_run__file_size
+msgid "File Size"
+msgstr ""
+
+#. module: xlsx_template_report
+#: model:ir.model.fields,field_description:xlsx_template_report.field_xlsx_report__filename_pattern
+msgid "File name"
+msgstr ""
+
+#. module: xlsx_template_report
+#: model:ir.model.fields,field_description:xlsx_template_report.field_xlsx_report_source__date_field_id
+msgid "Filter period on"
+msgstr ""
+
+#. module: xlsx_template_report
+#: model:ir.model.fields,field_description:xlsx_template_report.field_xlsx_report__message_follower_ids
+msgid "Followers"
+msgstr ""
+
+#. module: xlsx_template_report
+#: model:ir.model.fields,field_description:xlsx_template_report.field_xlsx_report__message_partner_ids
+msgid "Followers (Partners)"
+msgstr ""
+
+#. module: xlsx_template_report
+#: model:ir.model.fields.selection,name:xlsx_template_report.selection__xlsx_report__week_start__4
+msgid "Friday"
+msgstr ""
+
+#. module: xlsx_template_report
+#: model:ir.model.fields,field_description:xlsx_template_report.field_xlsx_report_source__groupby_ids
+msgid "Group by"
+msgstr ""
+
+#. module: xlsx_template_report
+#: model:ir.model.fields.selection,name:xlsx_template_report.selection__xlsx_report_source__source_type__group
+msgid "Grouped totals"
+msgstr ""
+
+#. module: xlsx_template_report
+#: model:ir.model.fields,field_description:xlsx_template_report.field_xlsx_report__has_message
+msgid "Has Message"
+msgstr ""
+
+#. module: xlsx_template_report
+#: model:ir.model.fields,field_description:xlsx_template_report.field_xlsx_report_source_column__header
+msgid "Header"
+msgstr ""
+
+#. module: xlsx_template_report
+#: model:ir.model.fields,field_description:xlsx_template_report.field_xlsx_report_source__header_mode
+msgid "Header Mode"
+msgstr ""
+
+#. module: xlsx_template_report
+#: model:ir.model.fields,help:xlsx_template_report.field_xlsx_report_source__header_mode
+msgid "Header used for columns without a custom header."
+msgstr ""
+
+#. module: xlsx_template_report
+#: model:ir.model.fields,field_description:xlsx_template_report.field_xlsx_report__id
+#: model:ir.model.fields,field_description:xlsx_template_report.field_xlsx_report_run__id
+#: model:ir.model.fields,field_description:xlsx_template_report.field_xlsx_report_source__id
+#: model:ir.model.fields,field_description:xlsx_template_report.field_xlsx_report_source_column__id
+msgid "ID"
+msgstr ""
+
+#. module: xlsx_template_report
+#: model:ir.model.fields,help:xlsx_template_report.field_xlsx_report__message_needaction
+msgid "If checked, new messages require your attention."
+msgstr ""
+
+#. module: xlsx_template_report
+#: model:ir.model.fields,help:xlsx_template_report.field_xlsx_report__message_has_error
+msgid "If checked, some messages have a delivery error."
+msgstr ""
+
+#. module: xlsx_template_report
+#. odoo-python
+#: code:addons/xlsx_template_report/models/xlsx_report_source.py:0
+msgid ""
+"Invalid data source name %r: use letters, digits and _ (max 31 characters, "
+"not starting with a digit, not looking like a cell such as A1)."
+msgstr ""
+
+#. module: xlsx_template_report
+#. odoo-python
+#: code:addons/xlsx_template_report/models/xlsx_report_source.py:0
+msgid "Invalid domain on data source %s: %s"
+msgstr ""
+
+#. module: xlsx_template_report
+#. odoo-python
+#: code:addons/xlsx_template_report/models/xlsx_report.py:0
+msgid "Invalid template: %s"
+msgstr ""
+
+#. module: xlsx_template_report
+#: model:ir.model.fields,field_description:xlsx_template_report.field_xlsx_report__message_is_follower
+msgid "Is Follower"
+msgstr ""
+
+#. module: xlsx_template_report
+#: model:ir.model.fields.selection,name:xlsx_template_report.selection__xlsx_report__period_type__last_n_days
+msgid "Last N days (excluding today)"
+msgstr ""
+
+#. module: xlsx_template_report
+#: model:ir.model.fields,field_description:xlsx_template_report.field_xlsx_report__write_uid
+#: model:ir.model.fields,field_description:xlsx_template_report.field_xlsx_report_run__write_uid
+#: model:ir.model.fields,field_description:xlsx_template_report.field_xlsx_report_source__write_uid
+#: model:ir.model.fields,field_description:xlsx_template_report.field_xlsx_report_source_column__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: xlsx_template_report
+#: model:ir.model.fields,field_description:xlsx_template_report.field_xlsx_report__write_date
+#: model:ir.model.fields,field_description:xlsx_template_report.field_xlsx_report_run__write_date
+#: model:ir.model.fields,field_description:xlsx_template_report.field_xlsx_report_source__write_date
+#: model:ir.model.fields,field_description:xlsx_template_report.field_xlsx_report_source_column__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: xlsx_template_report
+#: model:ir.model.fields.selection,name:xlsx_template_report.selection__xlsx_report__period_type__last_month
+msgid "Last month"
+msgstr ""
+
+#. module: xlsx_template_report
+#: model:ir.model.fields.selection,name:xlsx_template_report.selection__xlsx_report__period_type__last_quarter
+msgid "Last quarter"
+msgstr ""
+
+#. module: xlsx_template_report
+#: model:ir.model.fields.selection,name:xlsx_template_report.selection__xlsx_report__period_type__last_week
+msgid "Last week"
+msgstr ""
+
+#. module: xlsx_template_report
+#: model:ir.model.fields.selection,name:xlsx_template_report.selection__xlsx_report__period_type__last_year
+msgid "Last year"
+msgstr ""
+
+#. module: xlsx_template_report
+#: model:res.groups,name:xlsx_template_report.group_xlsx_report_manager
+msgid "Manager: all reports"
+msgstr ""
+
+#. module: xlsx_template_report
+#: model:ir.model.fields.selection,name:xlsx_template_report.selection__xlsx_report_run__trigger__manual
+msgid "Manual"
+msgstr ""
+
+#. module: xlsx_template_report
+#: model:ir.model.fields.selection,name:xlsx_template_report.selection__xlsx_report_source__aggregator__max
+msgid "Max"
+msgstr ""
+
+#. module: xlsx_template_report
+#: model:ir.model.fields,field_description:xlsx_template_report.field_xlsx_report_source__measure_ids
+msgid "Measures"
+msgstr ""
+
+#. module: xlsx_template_report
+#: model:ir.model.fields,field_description:xlsx_template_report.field_xlsx_report__message_has_error
+msgid "Message Delivery error"
+msgstr ""
+
+#. module: xlsx_template_report
+#: model:ir.model.fields,field_description:xlsx_template_report.field_xlsx_report__message_ids
+msgid "Messages"
+msgstr ""
+
+#. module: xlsx_template_report
+#: model:ir.model.fields.selection,name:xlsx_template_report.selection__xlsx_report_source__aggregator__min
+msgid "Min"
+msgstr ""
+
+#. module: xlsx_template_report
+#: model:ir.model.fields,field_description:xlsx_template_report.field_xlsx_report_source__model_id
+msgid "Model"
+msgstr ""
+
+#. module: xlsx_template_report
+#. odoo-python
+#: code:addons/xlsx_template_report/models/xlsx_report_source.py:0
+msgid "Model %s is not installed."
+msgstr ""
+
+#. module: xlsx_template_report
+#: model:ir.model.fields,field_description:xlsx_template_report.field_xlsx_report_source__model_name
+msgid "Model name"
+msgstr ""
+
+#. module: xlsx_template_report
+#: model:ir.model.fields.selection,name:xlsx_template_report.selection__xlsx_report__week_start__0
+msgid "Monday"
+msgstr ""
+
+#. module: xlsx_template_report
+#: model:ir.model.fields.selection,name:xlsx_template_report.selection__xlsx_report_source__date_granularity__month
+msgid "Month"
+msgstr ""
+
+#. module: xlsx_template_report
+#: model_terms:ir.ui.view,arch_db:xlsx_template_report.xlsx_report_view_search
+msgid "My reports"
+msgstr ""
+
+#. module: xlsx_template_report
+#: model:ir.model.fields,field_description:xlsx_template_report.field_xlsx_report__name
+#: model:ir.model.fields,field_description:xlsx_template_report.field_xlsx_report_source__name
+msgid "Name"
+msgstr ""
+
+#. module: xlsx_template_report
+#: model:res.groups.privilege,placeholder:xlsx_template_report.res_groups_privilege_xlsx_report
+msgid "No"
+msgstr ""
+
+#. module: xlsx_template_report
+#: model:ir.model.fields,field_description:xlsx_template_report.field_xlsx_report__message_needaction_counter
+msgid "Number of Actions"
+msgstr ""
+
+#. module: xlsx_template_report
+#: model:ir.model.fields,field_description:xlsx_template_report.field_xlsx_report__period_days
+msgid "Number of days"
+msgstr ""
+
+#. module: xlsx_template_report
+#. odoo-python
+#: code:addons/xlsx_template_report/models/xlsx_report.py:0
+msgid "Number of days must be between 1 and 366."
+msgstr ""
+
+#. module: xlsx_template_report
+#: model:ir.model.fields,field_description:xlsx_template_report.field_xlsx_report__message_has_error_counter
+msgid "Number of errors"
+msgstr ""
+
+#. module: xlsx_template_report
+#: model:ir.model.fields,help:xlsx_template_report.field_xlsx_report__message_needaction_counter
+msgid "Number of messages requiring action"
+msgstr ""
+
+#. module: xlsx_template_report
+#: model:ir.model.fields,help:xlsx_template_report.field_xlsx_report__message_has_error_counter
+msgid "Number of messages with delivery error"
+msgstr ""
+
+#. module: xlsx_template_report
+#. odoo-python
+#: code:addons/xlsx_template_report/models/xlsx_report.py:0
+msgid "Only Excel Report managers can change the 'Run as' user."
+msgstr ""
+
+#. module: xlsx_template_report
+#. odoo-python
+#: code:addons/xlsx_template_report/models/xlsx_report_source.py:0
+msgid "Only SQL report administrators can create SQL data sources."
+msgstr ""
+
+#. module: xlsx_template_report
+#. odoo-python
+#: code:addons/xlsx_template_report/models/xlsx_report_source.py:0
+msgid "Only SQL report administrators can edit SQL data sources."
+msgstr ""
+
+#. module: xlsx_template_report
+#: model:ir.model.fields,help:xlsx_template_report.field_xlsx_report_source__date_field_id
+msgid "Only keep records whose date falls in the report period."
+msgstr ""
+
+#. module: xlsx_template_report
+#. odoo-python
+#: code:addons/xlsx_template_report/models/xlsx_report_source.py:0
+msgid "Only one SQL statement is allowed."
+msgstr ""
+
+#. module: xlsx_template_report
+#: model_terms:ir.ui.view,arch_db:xlsx_template_report.xlsx_report_view_form
+msgid ""
+"Other sheets may contain placeholders:\n"
+"                                        <code>{{report_name}}</code>, <code>{{company_name}}</code>,\n"
+"                                        <code>{{period_label}}</code>, <code>{{date_from}}</code>,\n"
+"                                        <code>{{date_to}}</code>, <code>{{generated_at}}</code>,\n"
+"                                        <code>{{run_as}}</code>, <code>{{&lt;source&gt;_count}}</code>."
+msgstr ""
+
+#. module: xlsx_template_report
+#: model:ir.model.fields,field_description:xlsx_template_report.field_xlsx_report__period_type
+#: model_terms:ir.ui.view,arch_db:xlsx_template_report.xlsx_report_view_form
+msgid "Period"
+msgstr ""
+
+#. module: xlsx_template_report
+#: model:ir.model.fields,field_description:xlsx_template_report.field_xlsx_report__period_preview
+msgid "Period if run now"
+msgstr ""
+
+#. module: xlsx_template_report
+#. odoo-python
+#: code:addons/xlsx_template_report/models/xlsx_report.py:0
+msgid "Placeholders: %s"
+msgstr ""
+
+#. module: xlsx_template_report
+#: model:ir.model.fields.selection,name:xlsx_template_report.selection__xlsx_report_source__date_granularity__quarter
+msgid "Quarter"
+msgstr ""
+
+#. module: xlsx_template_report
+#: model:ir.model.fields,help:xlsx_template_report.field_xlsx_report_source__sql_query
+msgid ""
+"Read-only SELECT. Parameters: %(date_from)s, %(date_to)s, %(company_ids)s. "
+"Write a literal % as %%. SQL ignores record rules: anyone receiving the "
+"report sees everything the query returns."
+msgstr ""
+
+#. module: xlsx_template_report
+#: model:ir.model.fields.selection,name:xlsx_template_report.selection__xlsx_report_source__source_type__search
+msgid "Records"
+msgstr ""
+
+#. module: xlsx_template_report
+#: model:ir.model.fields,field_description:xlsx_template_report.field_xlsx_report_run__report_id
+#: model:ir.model.fields,field_description:xlsx_template_report.field_xlsx_report_source__report_id
+msgid "Report"
+msgstr ""
+
+#. module: xlsx_template_report
+#: model:ir.actions.act_window,name:xlsx_template_report.action_xlsx_report_run
+#: model:ir.ui.menu,name:xlsx_template_report.menu_xlsx_report_run
+msgid "Report runs"
+msgstr ""
+
+#. module: xlsx_template_report
+#: model:ir.model.fields,field_description:xlsx_template_report.field_xlsx_report_source__row_limit
+msgid "Row Limit"
+msgstr ""
+
+#. module: xlsx_template_report
+#. odoo-python
+#: code:addons/xlsx_template_report/models/xlsx_report_source.py:0
+msgid "Row limit must be between 1 and 500,000."
+msgstr ""
+
+#. module: xlsx_template_report
+#: model:ir.model.fields,field_description:xlsx_template_report.field_xlsx_report_run__row_count
+msgid "Rows"
+msgstr ""
+
+#. module: xlsx_template_report
+#: model:ir.model.fields,field_description:xlsx_template_report.field_xlsx_report__run_count
+msgid "Run Count"
+msgstr ""
+
+#. module: xlsx_template_report
+#: model:ir.model.fields,field_description:xlsx_template_report.field_xlsx_report__owner_id
+msgid "Run as"
+msgstr ""
+
+#. module: xlsx_template_report
+#: model:ir.model.fields.selection,name:xlsx_template_report.selection__xlsx_report_run__state__running
+msgid "Running"
+msgstr ""
+
+#. module: xlsx_template_report
+#. odoo-python
+#: code:addons/xlsx_template_report/models/xlsx_report.py:0
+#: model:ir.model.fields,field_description:xlsx_template_report.field_xlsx_report__run_ids
+#: model_terms:ir.ui.view,arch_db:xlsx_template_report.xlsx_report_view_form
+msgid "Runs"
+msgstr ""
+
+#. module: xlsx_template_report
+#: model:res.groups,name:xlsx_template_report.group_xlsx_report_sql
+msgid "SQL administrator"
+msgstr ""
+
+#. module: xlsx_template_report
+#. odoo-python
+#: code:addons/xlsx_template_report/models/xlsx_report_source.py:0
+msgid "SQL data sources must start with SELECT or WITH."
+msgstr ""
+
+#. module: xlsx_template_report
+#. odoo-python
+#: code:addons/xlsx_template_report/models/xlsx_report_source.py:0
+msgid "SQL error in data source %s: %s"
+msgstr ""
+
+#. module: xlsx_template_report
+#: model_terms:ir.ui.view,arch_db:xlsx_template_report.xlsx_report_source_view_form
+msgid ""
+"SQL ignores record rules and multi-company restrictions. Everyone who\n"
+"                            receives the report sees everything this query returns."
+msgstr ""
+
+#. module: xlsx_template_report
+#: model:ir.model.fields.selection,name:xlsx_template_report.selection__xlsx_report_source__source_type__sql
+msgid "SQL query (admin)"
+msgstr ""
+
+#. module: xlsx_template_report
+#: model:ir.model.fields.selection,name:xlsx_template_report.selection__xlsx_report__week_start__5
+msgid "Saturday"
+msgstr ""
+
+#. module: xlsx_template_report
+#: model:ir.model.fields.selection,name:xlsx_template_report.selection__xlsx_report_run__trigger__schedule
+msgid "Scheduled"
+msgstr ""
+
+#. module: xlsx_template_report
+#: model:ir.model.fields,field_description:xlsx_template_report.field_xlsx_report_source__sequence
+#: model:ir.model.fields,field_description:xlsx_template_report.field_xlsx_report_source_column__sequence
+msgid "Sequence"
+msgstr ""
+
+#. module: xlsx_template_report
+#. odoo-python
+#: code:addons/xlsx_template_report/models/xlsx_report.py:0
+msgid "Sheets: %s"
+msgstr ""
+
+#. module: xlsx_template_report
+#: model:ir.model.fields,field_description:xlsx_template_report.field_xlsx_report_source_column__source_id
+msgid "Source"
+msgstr ""
+
+#. module: xlsx_template_report
+#: model:ir.model.fields,field_description:xlsx_template_report.field_xlsx_report_source__sql_query
+msgid "Sql Query"
+msgstr ""
+
+#. module: xlsx_template_report
+#: model:ir.model.fields,field_description:xlsx_template_report.field_xlsx_report_run__state
+msgid "State"
+msgstr ""
+
+#. module: xlsx_template_report
+#: model_terms:ir.ui.view,arch_db:xlsx_template_report.xlsx_report_view_form
+msgid ""
+"Style row 1 (header) and row 2 (data) of that sheet: generated rows reuse "
+"it."
+msgstr ""
+
+#. module: xlsx_template_report
+#: model:ir.model.fields.selection,name:xlsx_template_report.selection__xlsx_report_source__aggregator__sum
+msgid "Sum"
+msgstr ""
+
+#. module: xlsx_template_report
+#: model:ir.model.fields.selection,name:xlsx_template_report.selection__xlsx_report__week_start__6
+msgid "Sunday"
+msgstr ""
+
+#. module: xlsx_template_report
+#: model:ir.model.fields.selection,name:xlsx_template_report.selection__xlsx_report_source__header_mode__name
+msgid "Technical name (stable for formulas)"
+msgstr ""
+
+#. module: xlsx_template_report
+#: model:ir.model.fields,field_description:xlsx_template_report.field_xlsx_report__template
+#: model_terms:ir.ui.view,arch_db:xlsx_template_report.xlsx_report_view_form
+msgid "Template"
+msgstr ""
+
+#. module: xlsx_template_report
+#: model:ir.model.fields,field_description:xlsx_template_report.field_xlsx_report__template_filename
+msgid "Template Filename"
+msgstr ""
+
+#. module: xlsx_template_report
+#: model:ir.model.fields,field_description:xlsx_template_report.field_xlsx_report__template_info
+msgid "Template Info"
+msgstr ""
+
+#. module: xlsx_template_report
+#: model:ir.model.fields.selection,name:xlsx_template_report.selection__xlsx_report_run__trigger__test
+msgid "Test"
+msgstr ""
+
+#. module: xlsx_template_report
+#. odoo-python
+#: code:addons/xlsx_template_report/models/xlsx_report.py:0
+msgid "The 'Run as' user has no access to the selected companies."
+msgstr ""
+
+#. module: xlsx_template_report
+#. odoo-python
+#: code:addons/xlsx_template_report/models/xlsx_report_source.py:0
+msgid "The 'Run as' user of this report is not an SQL report administrator."
+msgstr ""
+
+#. module: xlsx_template_report
+#. odoo-python
+#: code:addons/xlsx_template_report/models/xlsx_report.py:0
+msgid "The template must be an .xlsx file."
+msgstr ""
+
+#. module: xlsx_template_report
+#: model:ir.model.fields.selection,name:xlsx_template_report.selection__xlsx_report__period_type__this_month
+msgid "This month to date"
+msgstr ""
+
+#. module: xlsx_template_report
+#: model:ir.model.fields.selection,name:xlsx_template_report.selection__xlsx_report__period_type__this_quarter
+msgid "This quarter to date"
+msgstr ""
+
+#. module: xlsx_template_report
+#: model:ir.model.fields.selection,name:xlsx_template_report.selection__xlsx_report__period_type__this_week
+msgid "This week to date"
+msgstr ""
+
+#. module: xlsx_template_report
+#: model:ir.model.fields.selection,name:xlsx_template_report.selection__xlsx_report__period_type__this_year
+msgid "This year to date"
+msgstr ""
+
+#. module: xlsx_template_report
+#: model:ir.model.fields.selection,name:xlsx_template_report.selection__xlsx_report__week_start__3
+msgid "Thursday"
+msgstr ""
+
+#. module: xlsx_template_report
+#: model:ir.model.fields,field_description:xlsx_template_report.field_xlsx_report_source__sql_timeout
+msgid "Timeout (s)"
+msgstr ""
+
+#. module: xlsx_template_report
+#: model:ir.model.fields,field_description:xlsx_template_report.field_xlsx_report__timezone
+msgid "Timezone"
+msgstr ""
+
+#. module: xlsx_template_report
+#: model:ir.model.fields.selection,name:xlsx_template_report.selection__xlsx_report__period_type__today
+msgid "Today"
+msgstr ""
+
+#. module: xlsx_template_report
+#: model:ir.model.fields,field_description:xlsx_template_report.field_xlsx_report_run__trigger
+msgid "Trigger"
+msgstr ""
+
+#. module: xlsx_template_report
+#: model:ir.model.fields.selection,name:xlsx_template_report.selection__xlsx_report__week_start__1
+msgid "Tuesday"
+msgstr ""
+
+#. module: xlsx_template_report
+#: model:ir.model.fields,field_description:xlsx_template_report.field_xlsx_report_source__source_type
+msgid "Type"
+msgstr ""
+
+#. module: xlsx_template_report
+#. odoo-python
+#: code:addons/xlsx_template_report/models/xlsx_report_source.py:0
+msgid "Unsupported field types: %s"
+msgstr ""
+
+#. module: xlsx_template_report
+#: model:ir.model.fields,help:xlsx_template_report.field_xlsx_report_source__date_granularity
+msgid "Used when grouping by a date field."
+msgstr ""
+
+#. module: xlsx_template_report
+#: model:res.groups,name:xlsx_template_report.group_xlsx_report_user
+msgid "User: own reports"
+msgstr ""
+
+#. module: xlsx_template_report
+#: model:ir.model.fields.selection,name:xlsx_template_report.selection__xlsx_report__week_start__2
+msgid "Wednesday"
+msgstr ""
+
+#. module: xlsx_template_report
+#: model:ir.model.fields.selection,name:xlsx_template_report.selection__xlsx_report_source__date_granularity__week
+msgid "Week"
+msgstr ""
+
+#. module: xlsx_template_report
+#: model:ir.model.fields,field_description:xlsx_template_report.field_xlsx_report__week_start
+msgid "Week Start"
+msgstr ""
+
+#. module: xlsx_template_report
+#: model:ir.model.fields.selection,name:xlsx_template_report.selection__xlsx_report_source__date_granularity__year
+msgid "Year"
+msgstr ""
+
+#. module: xlsx_template_report
+#: model:ir.model.fields.selection,name:xlsx_template_report.selection__xlsx_report__period_type__yesterday
+msgid "Yesterday"
+msgstr ""
+
+#. module: xlsx_template_report
+#: model_terms:ir.ui.view,arch_db:xlsx_template_report.xlsx_report_view_form
+msgid "e.g. Weekly sales by salesperson"
+msgstr ""
+
+#. module: xlsx_template_report
+#. odoo-python
+#: code:addons/xlsx_template_report/models/xlsx_report.py:0
+msgid "report_id"
+msgstr ""
+
+#. module: xlsx_template_report
+#: model_terms:ir.ui.view,arch_db:xlsx_template_report.xlsx_report_source_view_form
+msgid "sales"
+msgstr ""

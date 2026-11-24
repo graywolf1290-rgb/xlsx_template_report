@@ -1,0 +1,1029 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* xlsx_template_report
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 20.0-20261112\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-23 08:18+0000\n"
+"PO-Revision-Date: 2026-11-23 08:18+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: xlsx_template_report
+#: model:ir.module.module,description:base.module_xlsx_template_report
+msgid ""
+"# Excel Template Reports\n"
+"\n"
+"Design a report in your own Excel file — colours, number formats, formulas,\n"
+"PivotTables — and let Odoo fill in the data.\n"
+"\n"
+"* Each data source fills a sheet with the same name, as an Excel table:\n"
+"  `=SUM(sales[amount_total])` keeps working whatever the number of rows.\n"
+"* Records, grouped totals, or read-only SQL (administrators only).\n"
+"* Relative periods: yesterday, last week, month to date, last quarter...\n"
+"* Data is always read with the access rights of the \"Run as\" user.\n"
+"\n"
+"Scheduling and delivery by email or Telegram: **Excel Template Reports Pro**.\n"
+msgstr ""
+
+#. module: xlsx_template_report
+#: model_terms:ir.ui.view,arch_db:xlsx_template_report.xlsx_report_source_view_form
+msgid "(default)"
+msgstr "(mặc định)"
+
+#. module: xlsx_template_report
+#: model_terms:ir.ui.view,arch_db:xlsx_template_report.xlsx_report_view_form
+msgid "<b>How templates work</b>"
+msgstr "<b>Cách dùng file mẫu</b>"
+
+#. module: xlsx_template_report
+#: model_terms:ir.ui.view,arch_db:xlsx_template_report.xlsx_report_view_form
+msgid "Access"
+msgstr "Phân quyền"
+
+#. module: xlsx_template_report
+#: model:ir.model.fields,field_description:xlsx_template_report.field_xlsx_report__message_needaction
+msgid "Action Needed"
+msgstr "Cần xử lý"
+
+#. module: xlsx_template_report
+#: model:ir.model.fields,field_description:xlsx_template_report.field_xlsx_report__active
+msgid "Active"
+msgstr "Đang dùng"
+
+#. module: xlsx_template_report
+#. odoo-python
+#: code:addons/xlsx_template_report/models/xlsx_report.py:0
+msgid "Add a template or at least one data source."
+msgstr "Hãy thêm file mẫu hoặc ít nhất một nguồn dữ liệu."
+
+#. module: xlsx_template_report
+#: model:ir.model.fields,field_description:xlsx_template_report.field_xlsx_report_source__aggregator
+msgid "Aggregator"
+msgstr "Phép tổng hợp"
+
+#. module: xlsx_template_report
+#: model:ir.model.fields,help:xlsx_template_report.field_xlsx_report_source__name
+msgid ""
+"Also the name of the data sheet and of the Excel table. Use it in formulas, "
+"e.g. =SUM(sales[amount_total]). Letters, digits and _ only."
+msgstr ""
+"Cũng là tên sheet dữ liệu và tên Excel Table. Dùng trong công thức, VD: =SUM(sales[amount_total]). Chỉ gồm chữ, số và _."
+
+#. module: xlsx_template_report
+#: model_terms:ir.ui.view,arch_db:xlsx_template_report.xlsx_report_view_form
+#: model_terms:ir.ui.view,arch_db:xlsx_template_report.xlsx_report_view_search
+msgid "Archived"
+msgstr "Đã lưu trữ"
+
+#. module: xlsx_template_report
+#: model:ir.model.fields,field_description:xlsx_template_report.field_xlsx_report__message_attachment_count
+msgid "Attachment Count"
+msgstr "Số tệp đính kèm"
+
+#. module: xlsx_template_report
+#: model:ir.model.fields,help:xlsx_template_report.field_xlsx_report__filename_pattern
+msgid "Available keys: {report}, {date_from}, {date_to}, {period}, {today}"
+msgstr ""
+"Các khoá dùng được: {report}, {date_from}, {date_to}, {period}, {today}"
+
+#. module: xlsx_template_report
+#: model:ir.model.fields.selection,name:xlsx_template_report.selection__xlsx_report_source__aggregator__avg
+msgid "Average"
+msgstr "Trung bình"
+
+#. module: xlsx_template_report
+#: model:res.groups,comment:xlsx_template_report.group_xlsx_report_sql
+msgid ""
+"Can write raw SQL data sources. SQL ignores record rules and\n"
+"            multi-company restrictions: grant only to people who may read the whole database."
+msgstr ""
+"Được viết nguồn dữ liệu SQL. SQL bỏ qua quy tắc phân quyền bản ghi và giới hạn đa công ty: chỉ cấp cho người được phép đọc toàn bộ cơ sở dữ liệu."
+
+#. module: xlsx_template_report
+#: model_terms:ir.ui.view,arch_db:xlsx_template_report.xlsx_report_view_form
+msgid ""
+"Charts and images are removed from generated files. Use PivotTables\n"
+"                                        or conditional formatting instead."
+msgstr ""
+"Biểu đồ và hình ảnh sẽ bị xoá khỏi file sinh ra. Hãy dùng PivotTable hoặc định dạng có điều kiện thay thế."
+
+#. module: xlsx_template_report
+#. odoo-python
+#: code:addons/xlsx_template_report/models/xlsx_report_source.py:0
+msgid "Choose a model for data source %s."
+msgstr "Hãy chọn model cho nguồn dữ liệu %s."
+
+#. module: xlsx_template_report
+#. odoo-python
+#: code:addons/xlsx_template_report/models/xlsx_report_source.py:0
+msgid "Choose at least one 'Group by' field for %s."
+msgstr "Hãy chọn ít nhất một trường 'Nhóm theo' cho %s."
+
+#. module: xlsx_template_report
+#. odoo-python
+#: code:addons/xlsx_template_report/models/xlsx_report_source.py:0
+msgid "Choose at least one column for data source %s."
+msgstr "Hãy chọn ít nhất một cột cho nguồn dữ liệu %s."
+
+#. module: xlsx_template_report
+#: model:ir.model.fields,help:xlsx_template_report.field_xlsx_report_source_column__header
+msgid ""
+"Column header in the Excel table. Empty: technical name or label, depending "
+"on the data source setting. Formulas refer to it, e.g. =SUM(sales[Amount])."
+msgstr ""
+"Tiêu đề cột trong Excel Table. Để trống: dùng tên kỹ thuật hoặc nhãn tuỳ cài đặt của nguồn dữ liệu. Công thức tham chiếu theo tiêu đề này, VD: =SUM(sales[Amount])."
+
+#. module: xlsx_template_report
+#: model:ir.model.fields,field_description:xlsx_template_report.field_xlsx_report_source__column_ids
+msgid "Columns"
+msgstr "Cột"
+
+#. module: xlsx_template_report
+#. odoo-python
+#: code:addons/xlsx_template_report/models/xlsx_report_source.py:0
+msgid "Columns must belong to the model %s."
+msgstr "Các cột phải thuộc model %s."
+
+#. module: xlsx_template_report
+#: model:ir.model.fields,help:xlsx_template_report.field_xlsx_report__company_ids
+msgid ""
+"Companies whose data is included. Limited to the companies of the 'Run as' "
+"user."
+msgstr ""
+"Các công ty được lấy dữ liệu. Chỉ trong phạm vi công ty của người 'Chạy với quyền của'."
+
+#. module: xlsx_template_report
+#: model:ir.model.fields,field_description:xlsx_template_report.field_xlsx_report__company_id
+msgid "Company"
+msgstr "Công ty"
+
+#. module: xlsx_template_report
+#: model:ir.ui.menu,name:xlsx_template_report.menu_xlsx_report_config
+msgid "Configuration"
+msgstr "Cấu hình"
+
+#. module: xlsx_template_report
+#: model_terms:ir.actions.act_window,help:xlsx_template_report.action_xlsx_report
+msgid "Create your first Excel report"
+msgstr "Tạo báo cáo Excel đầu tiên"
+
+#. module: xlsx_template_report
+#: model:ir.model.fields,field_description:xlsx_template_report.field_xlsx_report__create_uid
+#: model:ir.model.fields,field_description:xlsx_template_report.field_xlsx_report_run__create_uid
+#: model:ir.model.fields,field_description:xlsx_template_report.field_xlsx_report_source__create_uid
+#: model:ir.model.fields,field_description:xlsx_template_report.field_xlsx_report_source_column__create_uid
+msgid "Created by"
+msgstr "Người tạo"
+
+#. module: xlsx_template_report
+#: model:ir.model.fields,field_description:xlsx_template_report.field_xlsx_report__create_date
+#: model:ir.model.fields,field_description:xlsx_template_report.field_xlsx_report_run__create_date
+#: model:ir.model.fields,field_description:xlsx_template_report.field_xlsx_report_source__create_date
+#: model:ir.model.fields,field_description:xlsx_template_report.field_xlsx_report_source_column__create_date
+msgid "Created on"
+msgstr "Ngày tạo"
+
+#. module: xlsx_template_report
+#: model:ir.model.fields,field_description:xlsx_template_report.field_xlsx_report__company_ids
+msgid "Data from companies"
+msgstr "Lấy dữ liệu của công ty"
+
+#. module: xlsx_template_report
+#: model_terms:ir.ui.view,arch_db:xlsx_template_report.xlsx_report_view_form
+msgid ""
+"Data is read with the access rights of <b>Run as</b>. Everyone who receives the\n"
+"                        file sees what that user is allowed to see."
+msgstr ""
+"Dữ liệu được đọc bằng quyền của <b>Chạy với quyền của</b>. Ai nhận file cũng sẽ thấy những gì người đó được phép xem."
+
+#. module: xlsx_template_report
+#: model:ir.model.fields,help:xlsx_template_report.field_xlsx_report__owner_id
+msgid ""
+"Data is read with the access rights of this user. Everyone who receives the "
+"file sees what this user is allowed to see."
+msgstr ""
+"Dữ liệu được đọc bằng quyền của người dùng này. Ai nhận file cũng sẽ thấy những gì người này được phép xem."
+
+#. module: xlsx_template_report
+#. odoo-python
+#: code:addons/xlsx_template_report/models/xlsx_report_source.py:0
+msgid "Data source %s returns more than %s groups."
+msgstr "Nguồn dữ liệu %s trả về hơn %s nhóm."
+
+#. module: xlsx_template_report
+#. odoo-python
+#: code:addons/xlsx_template_report/models/xlsx_report_source.py:0
+msgid "Data source %s returns more than %s rows."
+msgstr "Nguồn dữ liệu %s trả về hơn %s dòng."
+
+#. module: xlsx_template_report
+#. odoo-python
+#: code:addons/xlsx_template_report/models/xlsx_report_source.py:0
+msgid ""
+"Data source %s returns more than %s rows. Narrow the domain or raise the row"
+" limit."
+msgstr ""
+"Nguồn dữ liệu %s trả về hơn %s dòng. Hãy thu hẹp bộ lọc hoặc tăng giới hạn dòng."
+
+#. module: xlsx_template_report
+#. odoo-python
+#: code:addons/xlsx_template_report/models/xlsx_report_source.py:0
+msgid "Data source names must be unique in a report."
+msgstr "Tên nguồn dữ liệu không được trùng trong một báo cáo."
+
+#. module: xlsx_template_report
+#: model:ir.model.fields,field_description:xlsx_template_report.field_xlsx_report__source_ids
+#: model_terms:ir.ui.view,arch_db:xlsx_template_report.xlsx_report_view_form
+msgid "Data sources"
+msgstr "Nguồn dữ liệu"
+
+#. module: xlsx_template_report
+#: model_terms:ir.ui.view,arch_db:xlsx_template_report.xlsx_report_run_view_form
+#: model_terms:ir.ui.view,arch_db:xlsx_template_report.xlsx_report_run_view_list
+msgid "Date"
+msgstr "Ngày"
+
+#. module: xlsx_template_report
+#: model:ir.model.fields,field_description:xlsx_template_report.field_xlsx_report_source__date_granularity
+msgid "Date Granularity"
+msgstr "Mức nhóm ngày"
+
+#. module: xlsx_template_report
+#: model:ir.model.fields.selection,name:xlsx_template_report.selection__xlsx_report_source__date_granularity__day
+msgid "Day"
+msgstr "Ngày"
+
+#. module: xlsx_template_report
+#: model:ir.model.fields,field_description:xlsx_template_report.field_xlsx_report_run__channel_log
+#: model_terms:ir.ui.view,arch_db:xlsx_template_report.xlsx_report_run_view_form
+msgid "Delivery"
+msgstr "Gửi đi"
+
+#. module: xlsx_template_report
+#: model:ir.module.module,summary:base.module_xlsx_template_report
+msgid ""
+"Design reports in your own Excel file: Odoo fills in the data (free). "
+"Scheduling and Email/Telegram delivery: Excel Template Reports Pro"
+msgstr ""
+"Thiết kế báo cáo bằng chính file Excel của bạn, Odoo tự điền dữ liệu (miễn phí). Lập lịch và gửi qua Email/Telegram: bản Excel Template Reports Pro"
+
+#. module: xlsx_template_report
+#: model_terms:ir.actions.act_window,help:xlsx_template_report.action_xlsx_report
+msgid ""
+"Design the report in Excel, choose the data, and download it filled in."
+msgstr ""
+"Thiết kế báo cáo trong Excel, chọn dữ liệu và tải về file đã điền sẵn."
+
+#. module: xlsx_template_report
+#: model:ir.model.fields,field_description:xlsx_template_report.field_xlsx_report__display_name
+#: model:ir.model.fields,field_description:xlsx_template_report.field_xlsx_report_run__display_name
+#: model:ir.model.fields,field_description:xlsx_template_report.field_xlsx_report_source__display_name
+#: model:ir.model.fields,field_description:xlsx_template_report.field_xlsx_report_source_column__display_name
+msgid "Display Name"
+msgstr "Tên hiển thị"
+
+#. module: xlsx_template_report
+#: model:ir.model.fields,field_description:xlsx_template_report.field_xlsx_report_source__domain
+msgid "Domain"
+msgstr "Bộ lọc (domain)"
+
+#. module: xlsx_template_report
+#: model:ir.model.fields.selection,name:xlsx_template_report.selection__xlsx_report_run__state__done
+msgid "Done"
+msgstr "Hoàn tất"
+
+#. module: xlsx_template_report
+#: model_terms:ir.ui.view,arch_db:xlsx_template_report.xlsx_report_run_view_form
+#: model_terms:ir.ui.view,arch_db:xlsx_template_report.xlsx_report_run_view_list
+msgid "Download"
+msgstr "Tải về"
+
+#. module: xlsx_template_report
+#: model_terms:ir.ui.view,arch_db:xlsx_template_report.xlsx_report_view_form
+msgid "Download now"
+msgstr "Tải về ngay"
+
+#. module: xlsx_template_report
+#: model:ir.model.fields,field_description:xlsx_template_report.field_xlsx_report_run__duration
+msgid "Duration (s)"
+msgstr "Thời gian (giây)"
+
+#. module: xlsx_template_report
+#: model_terms:ir.ui.view,arch_db:xlsx_template_report.xlsx_report_view_form
+msgid ""
+"Each data source fills a sheet with the same name, as an Excel table.\n"
+"                                        Use it in formulas: <code>=SUM(sales[amount_total])</code>."
+msgstr ""
+"Mỗi nguồn dữ liệu được đổ vào sheet cùng tên, dưới dạng Excel Table. Dùng trong công thức: <code>=SUM(sales[amount_total])</code>."
+
+#. module: xlsx_template_report
+#: model_terms:ir.ui.view,arch_db:xlsx_template_report.xlsx_report_run_view_form
+msgid "Error"
+msgstr "Lỗi"
+
+#. module: xlsx_template_report
+#: model:ir.model.fields,field_description:xlsx_template_report.field_xlsx_report_run__error_message
+msgid "Error Message"
+msgstr "Thông báo lỗi"
+
+#. module: xlsx_template_report
+#: model:ir.model.fields,help:xlsx_template_report.field_xlsx_report__template
+msgid ""
+"Excel (.xlsx) template. Leave empty to get a plain workbook with one sheet "
+"per data source."
+msgstr ""
+"File mẫu Excel (.xlsx). Để trống để nhận file chỉ gồm mỗi nguồn dữ liệu một sheet."
+
+#. module: xlsx_template_report
+#: model:ir.model,name:xlsx_template_report.model_xlsx_report_source
+msgid "Excel Report Data Source"
+msgstr "Nguồn dữ liệu báo cáo Excel"
+
+#. module: xlsx_template_report
+#: model:ir.model,name:xlsx_template_report.model_xlsx_report_source_column
+msgid "Excel Report Data Source Column"
+msgstr "Cột của nguồn dữ liệu báo cáo Excel"
+
+#. module: xlsx_template_report
+#: model:ir.model,name:xlsx_template_report.model_xlsx_report_run
+msgid "Excel Report Run"
+msgstr "Lần chạy báo cáo Excel"
+
+#. module: xlsx_template_report
+#: model:ir.actions.act_window,name:xlsx_template_report.action_xlsx_report
+#: model:ir.module.category,name:xlsx_template_report.module_category_xlsx_report
+#: model:ir.ui.menu,name:xlsx_template_report.menu_xlsx_report
+#: model:ir.ui.menu,name:xlsx_template_report.menu_xlsx_report_root
+#: model:res.groups.privilege,name:xlsx_template_report.res_groups_privilege_xlsx_report
+msgid "Excel Reports"
+msgstr "Báo cáo Excel"
+
+#. module: xlsx_template_report
+#: model:ir.model,name:xlsx_template_report.model_xlsx_report
+msgid "Excel Template Report"
+msgstr "Báo cáo theo mẫu Excel"
+
+#. module: xlsx_template_report
+#: model:ir.module.module,shortdesc:base.module_xlsx_template_report
+msgid "Excel Template Reports"
+msgstr "Báo cáo theo mẫu Excel"
+
+#. module: xlsx_template_report
+#. odoo-python
+#: code:addons/xlsx_template_report/models/xlsx_report.py:0
+msgid "Excel tables: %s"
+msgstr "Các bảng Excel (Table): %s"
+
+#. module: xlsx_template_report
+#: model:ir.model.fields.selection,name:xlsx_template_report.selection__xlsx_report_run__state__failed
+msgid "Failed"
+msgstr "Thất bại"
+
+#. module: xlsx_template_report
+#: model:ir.model.fields,field_description:xlsx_template_report.field_xlsx_report_source_column__field_id
+msgid "Field"
+msgstr "Trường"
+
+#. module: xlsx_template_report
+#. odoo-python
+#: code:addons/xlsx_template_report/models/xlsx_report_source.py:0
+msgid "Field %s no longer exists."
+msgstr "Trường %s không còn tồn tại."
+
+#. module: xlsx_template_report
+#: model:ir.model.fields.selection,name:xlsx_template_report.selection__xlsx_report_source__header_mode__label
+msgid "Field label"
+msgstr "Nhãn của trường"
+
+#. module: xlsx_template_report
+#: model:ir.model.fields,field_description:xlsx_template_report.field_xlsx_report_run__attachment_id
+msgid "File"
+msgstr "File"
+
+#. module: xlsx_template_report
+#: model:ir.model.fields,field_description:xlsx_template_report.field_xlsx_report_run__file_size
+msgid "File Size"
+msgstr "Dung lượng file"
+
+#. module: xlsx_template_report
+#: model:ir.model.fields,field_description:xlsx_template_report.field_xlsx_report__filename_pattern
+msgid "File name"
+msgstr "Tên file"
+
+#. module: xlsx_template_report
+#: model:ir.model.fields,field_description:xlsx_template_report.field_xlsx_report_source__date_field_id
+msgid "Filter period on"
+msgstr "Lọc theo kỳ trên trường"
+
+#. module: xlsx_template_report
+#: model:ir.model.fields,field_description:xlsx_template_report.field_xlsx_report__message_follower_ids
+msgid "Followers"
+msgstr "Người theo dõi"
+
+#. module: xlsx_template_report
+#: model:ir.model.fields,field_description:xlsx_template_report.field_xlsx_report__message_partner_ids
+msgid "Followers (Partners)"
+msgstr "Người theo dõi (Đối tác)"
+
+#. module: xlsx_template_report
+#: model:ir.model.fields.selection,name:xlsx_template_report.selection__xlsx_report__week_start__4
+msgid "Friday"
+msgstr "Thứ Sáu"
+
+#. module: xlsx_template_report
+#: model:ir.model.fields,field_description:xlsx_template_report.field_xlsx_report_source__groupby_ids
+msgid "Group by"
+msgstr "Nhóm theo"
+
+#. module: xlsx_template_report
+#: model:ir.model.fields.selection,name:xlsx_template_report.selection__xlsx_report_source__source_type__group
+msgid "Grouped totals"
+msgstr "Tổng hợp theo nhóm"
+
+#. module: xlsx_template_report
+#: model:ir.model.fields,field_description:xlsx_template_report.field_xlsx_report__has_message
+msgid "Has Message"
+msgstr "Có tin nhắn"
+
+#. module: xlsx_template_report
+#: model:ir.model.fields,field_description:xlsx_template_report.field_xlsx_report_source_column__header
+msgid "Header"
+msgstr "Tiêu đề cột"
+
+#. module: xlsx_template_report
+#: model:ir.model.fields,field_description:xlsx_template_report.field_xlsx_report_source__header_mode
+msgid "Header Mode"
+msgstr "Kiểu tiêu đề"
+
+#. module: xlsx_template_report
+#: model:ir.model.fields,help:xlsx_template_report.field_xlsx_report_source__header_mode
+msgid "Header used for columns without a custom header."
+msgstr "Tiêu đề dùng cho các cột không đặt tiêu đề riêng."
+
+#. module: xlsx_template_report
+#: model:ir.model.fields,field_description:xlsx_template_report.field_xlsx_report__id
+#: model:ir.model.fields,field_description:xlsx_template_report.field_xlsx_report_run__id
+#: model:ir.model.fields,field_description:xlsx_template_report.field_xlsx_report_source__id
+#: model:ir.model.fields,field_description:xlsx_template_report.field_xlsx_report_source_column__id
+msgid "ID"
+msgstr "ID"
+
+#. module: xlsx_template_report
+#: model:ir.model.fields,help:xlsx_template_report.field_xlsx_report__message_needaction
+msgid "If checked, new messages require your attention."
+msgstr "Nếu chọn, các tin nhắn mới cần bạn chú ý."
+
+#. module: xlsx_template_report
+#: model:ir.model.fields,help:xlsx_template_report.field_xlsx_report__message_has_error
+msgid "If checked, some messages have a delivery error."
+msgstr "Nếu chọn, một số tin nhắn bị lỗi gửi."
+
+#. module: xlsx_template_report
+#. odoo-python
+#: code:addons/xlsx_template_report/models/xlsx_report_source.py:0
+msgid ""
+"Invalid data source name %r: use letters, digits and _ (max 31 characters, "
+"not starting with a digit, not looking like a cell such as A1)."
+msgstr ""
+"Tên nguồn dữ liệu %r không hợp lệ: chỉ dùng chữ, số và _ (tối đa 31 ký tự, không bắt đầu bằng số, không giống địa chỉ ô như A1)."
+
+#. module: xlsx_template_report
+#. odoo-python
+#: code:addons/xlsx_template_report/models/xlsx_report_source.py:0
+msgid "Invalid domain on data source %s: %s"
+msgstr "Bộ lọc không hợp lệ ở nguồn dữ liệu %s: %s"
+
+#. module: xlsx_template_report
+#. odoo-python
+#: code:addons/xlsx_template_report/models/xlsx_report.py:0
+msgid "Invalid template: %s"
+msgstr "File mẫu không hợp lệ: %s"
+
+#. module: xlsx_template_report
+#: model:ir.model.fields,field_description:xlsx_template_report.field_xlsx_report__message_is_follower
+msgid "Is Follower"
+msgstr "Đang theo dõi"
+
+#. module: xlsx_template_report
+#: model:ir.model.fields.selection,name:xlsx_template_report.selection__xlsx_report__period_type__last_n_days
+msgid "Last N days (excluding today)"
+msgstr "N ngày gần nhất (không tính hôm nay)"
+
+#. module: xlsx_template_report
+#: model:ir.model.fields,field_description:xlsx_template_report.field_xlsx_report__write_uid
+#: model:ir.model.fields,field_description:xlsx_template_report.field_xlsx_report_run__write_uid
+#: model:ir.model.fields,field_description:xlsx_template_report.field_xlsx_report_source__write_uid
+#: model:ir.model.fields,field_description:xlsx_template_report.field_xlsx_report_source_column__write_uid
+msgid "Last Updated by"
+msgstr "Cập nhật lần cuối bởi"
+
+#. module: xlsx_template_report
+#: model:ir.model.fields,field_description:xlsx_template_report.field_xlsx_report__write_date
+#: model:ir.model.fields,field_description:xlsx_template_report.field_xlsx_report_run__write_date
+#: model:ir.model.fields,field_description:xlsx_template_report.field_xlsx_report_source__write_date
+#: model:ir.model.fields,field_description:xlsx_template_report.field_xlsx_report_source_column__write_date
+msgid "Last Updated on"
+msgstr "Cập nhật lần cuối lúc"
+
+#. module: xlsx_template_report
+#: model:ir.model.fields.selection,name:xlsx_template_report.selection__xlsx_report__period_type__last_month
+msgid "Last month"
+msgstr "Tháng trước"
+
+#. module: xlsx_template_report
+#: model:ir.model.fields.selection,name:xlsx_template_report.selection__xlsx_report__period_type__last_quarter
+msgid "Last quarter"
+msgstr "Quý trước"
+
+#. module: xlsx_template_report
+#: model:ir.model.fields.selection,name:xlsx_template_report.selection__xlsx_report__period_type__last_week
+msgid "Last week"
+msgstr "Tuần trước"
+
+#. module: xlsx_template_report
+#: model:ir.model.fields.selection,name:xlsx_template_report.selection__xlsx_report__period_type__last_year
+msgid "Last year"
+msgstr "Năm trước"
+
+#. module: xlsx_template_report
+#: model:res.groups,name:xlsx_template_report.group_xlsx_report_manager
+msgid "Manager: all reports"
+msgstr "Quản lý: tất cả báo cáo"
+
+#. module: xlsx_template_report
+#: model:ir.model.fields.selection,name:xlsx_template_report.selection__xlsx_report_run__trigger__manual
+msgid "Manual"
+msgstr "Thủ công"
+
+#. module: xlsx_template_report
+#: model:ir.model.fields.selection,name:xlsx_template_report.selection__xlsx_report_source__aggregator__max
+msgid "Max"
+msgstr "Lớn nhất"
+
+#. module: xlsx_template_report
+#: model:ir.model.fields,field_description:xlsx_template_report.field_xlsx_report_source__measure_ids
+msgid "Measures"
+msgstr "Chỉ số"
+
+#. module: xlsx_template_report
+#: model:ir.model.fields,field_description:xlsx_template_report.field_xlsx_report__message_has_error
+msgid "Message Delivery error"
+msgstr "Lỗi gửi tin nhắn"
+
+#. module: xlsx_template_report
+#: model:ir.model.fields,field_description:xlsx_template_report.field_xlsx_report__message_ids
+msgid "Messages"
+msgstr "Tin nhắn"
+
+#. module: xlsx_template_report
+#: model:ir.model.fields.selection,name:xlsx_template_report.selection__xlsx_report_source__aggregator__min
+msgid "Min"
+msgstr "Nhỏ nhất"
+
+#. module: xlsx_template_report
+#: model:ir.model.fields,field_description:xlsx_template_report.field_xlsx_report_source__model_id
+msgid "Model"
+msgstr "Model"
+
+#. module: xlsx_template_report
+#. odoo-python
+#: code:addons/xlsx_template_report/models/xlsx_report_source.py:0
+msgid "Model %s is not installed."
+msgstr "Model %s chưa được cài."
+
+#. module: xlsx_template_report
+#: model:ir.model.fields,field_description:xlsx_template_report.field_xlsx_report_source__model_name
+msgid "Model name"
+msgstr "Tên model"
+
+#. module: xlsx_template_report
+#: model:ir.model.fields.selection,name:xlsx_template_report.selection__xlsx_report__week_start__0
+msgid "Monday"
+msgstr "Thứ Hai"
+
+#. module: xlsx_template_report
+#: model:ir.model.fields.selection,name:xlsx_template_report.selection__xlsx_report_source__date_granularity__month
+msgid "Month"
+msgstr "Tháng"
+
+#. module: xlsx_template_report
+#: model_terms:ir.ui.view,arch_db:xlsx_template_report.xlsx_report_view_search
+msgid "My reports"
+msgstr "Báo cáo của tôi"
+
+#. module: xlsx_template_report
+#: model:ir.model.fields,field_description:xlsx_template_report.field_xlsx_report__name
+#: model:ir.model.fields,field_description:xlsx_template_report.field_xlsx_report_source__name
+msgid "Name"
+msgstr "Tên"
+
+#. module: xlsx_template_report
+#: model:res.groups.privilege,placeholder:xlsx_template_report.res_groups_privilege_xlsx_report
+msgid "No"
+msgstr "Không"
+
+#. module: xlsx_template_report
+#: model:ir.model.fields,field_description:xlsx_template_report.field_xlsx_report__message_needaction_counter
+msgid "Number of Actions"
+msgstr "Số hành động"
+
+#. module: xlsx_template_report
+#: model:ir.model.fields,field_description:xlsx_template_report.field_xlsx_report__period_days
+msgid "Number of days"
+msgstr "Số ngày"
+
+#. module: xlsx_template_report
+#. odoo-python
+#: code:addons/xlsx_template_report/models/xlsx_report.py:0
+msgid "Number of days must be between 1 and 366."
+msgstr "Số ngày phải từ 1 đến 366."
+
+#. module: xlsx_template_report
+#: model:ir.model.fields,field_description:xlsx_template_report.field_xlsx_report__message_has_error_counter
+msgid "Number of errors"
+msgstr "Số lỗi"
+
+#. module: xlsx_template_report
+#: model:ir.model.fields,help:xlsx_template_report.field_xlsx_report__message_needaction_counter
+msgid "Number of messages requiring action"
+msgstr "Số tin nhắn cần xử lý"
+
+#. module: xlsx_template_report
+#: model:ir.model.fields,help:xlsx_template_report.field_xlsx_report__message_has_error_counter
+msgid "Number of messages with delivery error"
+msgstr "Số tin nhắn bị lỗi gửi"
+
+#. module: xlsx_template_report
+#. odoo-python
+#: code:addons/xlsx_template_report/models/xlsx_report.py:0
+msgid "Only Excel Report managers can change the 'Run as' user."
+msgstr "Chỉ quản lý Báo cáo Excel mới được đổi người 'Chạy với quyền của'."
+
+#. module: xlsx_template_report
+#. odoo-python
+#: code:addons/xlsx_template_report/models/xlsx_report_source.py:0
+msgid "Only SQL report administrators can create SQL data sources."
+msgstr "Chỉ Quản trị SQL mới được tạo nguồn dữ liệu SQL."
+
+#. module: xlsx_template_report
+#. odoo-python
+#: code:addons/xlsx_template_report/models/xlsx_report_source.py:0
+msgid "Only SQL report administrators can edit SQL data sources."
+msgstr "Chỉ Quản trị SQL mới được sửa nguồn dữ liệu SQL."
+
+#. module: xlsx_template_report
+#: model:ir.model.fields,help:xlsx_template_report.field_xlsx_report_source__date_field_id
+msgid "Only keep records whose date falls in the report period."
+msgstr "Chỉ lấy bản ghi có ngày nằm trong kỳ báo cáo."
+
+#. module: xlsx_template_report
+#. odoo-python
+#: code:addons/xlsx_template_report/models/xlsx_report_source.py:0
+msgid "Only one SQL statement is allowed."
+msgstr "Chỉ được phép một câu lệnh SQL."
+
+#. module: xlsx_template_report
+#: model_terms:ir.ui.view,arch_db:xlsx_template_report.xlsx_report_view_form
+msgid ""
+"Other sheets may contain placeholders:\n"
+"                                        <code>{{report_name}}</code>, <code>{{company_name}}</code>,\n"
+"                                        <code>{{period_label}}</code>, <code>{{date_from}}</code>,\n"
+"                                        <code>{{date_to}}</code>, <code>{{generated_at}}</code>,\n"
+"                                        <code>{{run_as}}</code>, <code>{{&lt;source&gt;_count}}</code>."
+msgstr ""
+"Các sheet khác có thể chứa placeholder: <code>{{report_name}}</code>, <code>{{company_name}}</code>, <code>{{period_label}}</code>, <code>{{date_from}}</code>, <code>{{date_to}}</code>, <code>{{generated_at}}</code>, <code>{{run_as}}</code>, <code>{{&lt;source&gt;_count}}</code>."
+
+#. module: xlsx_template_report
+#: model:ir.model.fields,field_description:xlsx_template_report.field_xlsx_report__period_type
+#: model_terms:ir.ui.view,arch_db:xlsx_template_report.xlsx_report_view_form
+msgid "Period"
+msgstr "Kỳ báo cáo"
+
+#. module: xlsx_template_report
+#: model:ir.model.fields,field_description:xlsx_template_report.field_xlsx_report__period_preview
+msgid "Period if run now"
+msgstr "Kỳ nếu chạy bây giờ"
+
+#. module: xlsx_template_report
+#. odoo-python
+#: code:addons/xlsx_template_report/models/xlsx_report.py:0
+msgid "Placeholders: %s"
+msgstr "Các placeholder: %s"
+
+#. module: xlsx_template_report
+#: model:ir.model.fields.selection,name:xlsx_template_report.selection__xlsx_report_source__date_granularity__quarter
+msgid "Quarter"
+msgstr "Quý"
+
+#. module: xlsx_template_report
+#: model:ir.model.fields,help:xlsx_template_report.field_xlsx_report_source__sql_query
+msgid ""
+"Read-only SELECT. Parameters: %(date_from)s, %(date_to)s, %(company_ids)s. "
+"Write a literal % as %%. SQL ignores record rules: anyone receiving the "
+"report sees everything the query returns."
+msgstr ""
+"Chỉ cho phép SELECT (chỉ đọc). Tham số: %(date_from)s, %(date_to)s, %(company_ids)s. Viết ký tự % thành %%. SQL bỏ qua quy tắc phân quyền: ai nhận báo cáo cũng thấy mọi thứ truy vấn trả về."
+
+#. module: xlsx_template_report
+#: model:ir.model.fields.selection,name:xlsx_template_report.selection__xlsx_report_source__source_type__search
+msgid "Records"
+msgstr "Danh sách bản ghi"
+
+#. module: xlsx_template_report
+#: model:ir.model.fields,field_description:xlsx_template_report.field_xlsx_report_run__report_id
+#: model:ir.model.fields,field_description:xlsx_template_report.field_xlsx_report_source__report_id
+msgid "Report"
+msgstr "Báo cáo"
+
+#. module: xlsx_template_report
+#: model:ir.actions.act_window,name:xlsx_template_report.action_xlsx_report_run
+#: model:ir.ui.menu,name:xlsx_template_report.menu_xlsx_report_run
+msgid "Report runs"
+msgstr "Lịch sử chạy báo cáo"
+
+#. module: xlsx_template_report
+#: model:ir.model.fields,field_description:xlsx_template_report.field_xlsx_report_source__row_limit
+msgid "Row Limit"
+msgstr "Giới hạn dòng"
+
+#. module: xlsx_template_report
+#. odoo-python
+#: code:addons/xlsx_template_report/models/xlsx_report_source.py:0
+msgid "Row limit must be between 1 and 500,000."
+msgstr "Giới hạn dòng phải từ 1 đến 500.000."
+
+#. module: xlsx_template_report
+#: model:ir.model.fields,field_description:xlsx_template_report.field_xlsx_report_run__row_count
+msgid "Rows"
+msgstr "Số dòng"
+
+#. module: xlsx_template_report
+#: model:ir.model.fields,field_description:xlsx_template_report.field_xlsx_report__run_count
+msgid "Run Count"
+msgstr "Số lần chạy"
+
+#. module: xlsx_template_report
+#: model:ir.model.fields,field_description:xlsx_template_report.field_xlsx_report__owner_id
+msgid "Run as"
+msgstr "Chạy với quyền của"
+
+#. module: xlsx_template_report
+#: model:ir.model.fields.selection,name:xlsx_template_report.selection__xlsx_report_run__state__running
+msgid "Running"
+msgstr "Đang chạy"
+
+#. module: xlsx_template_report
+#. odoo-python
+#: code:addons/xlsx_template_report/models/xlsx_report.py:0
+#: model:ir.model.fields,field_description:xlsx_template_report.field_xlsx_report__run_ids
+#: model_terms:ir.ui.view,arch_db:xlsx_template_report.xlsx_report_view_form
+msgid "Runs"
+msgstr "Lần chạy"
+
+#. module: xlsx_template_report
+#: model:res.groups,name:xlsx_template_report.group_xlsx_report_sql
+msgid "SQL administrator"
+msgstr "Quản trị SQL"
+
+#. module: xlsx_template_report
+#. odoo-python
+#: code:addons/xlsx_template_report/models/xlsx_report_source.py:0
+msgid "SQL data sources must start with SELECT or WITH."
+msgstr "Nguồn dữ liệu SQL phải bắt đầu bằng SELECT hoặc WITH."
+
+#. module: xlsx_template_report
+#. odoo-python
+#: code:addons/xlsx_template_report/models/xlsx_report_source.py:0
+msgid "SQL error in data source %s: %s"
+msgstr "Lỗi SQL ở nguồn dữ liệu %s: %s"
+
+#. module: xlsx_template_report
+#: model_terms:ir.ui.view,arch_db:xlsx_template_report.xlsx_report_source_view_form
+msgid ""
+"SQL ignores record rules and multi-company restrictions. Everyone who\n"
+"                            receives the report sees everything this query returns."
+msgstr ""
+"SQL bỏ qua quy tắc phân quyền bản ghi và giới hạn đa công ty. Ai nhận báo cáo cũng thấy mọi thứ truy vấn này trả về."
+
+#. module: xlsx_template_report
+#: model:ir.model.fields.selection,name:xlsx_template_report.selection__xlsx_report_source__source_type__sql
+msgid "SQL query (admin)"
+msgstr "Truy vấn SQL (quản trị)"
+
+#. module: xlsx_template_report
+#: model:ir.model.fields.selection,name:xlsx_template_report.selection__xlsx_report__week_start__5
+msgid "Saturday"
+msgstr "Thứ Bảy"
+
+#. module: xlsx_template_report
+#: model:ir.model.fields.selection,name:xlsx_template_report.selection__xlsx_report_run__trigger__schedule
+msgid "Scheduled"
+msgstr "Theo lịch"
+
+#. module: xlsx_template_report
+#: model:ir.model.fields,field_description:xlsx_template_report.field_xlsx_report_source__sequence
+#: model:ir.model.fields,field_description:xlsx_template_report.field_xlsx_report_source_column__sequence
+msgid "Sequence"
+msgstr "Thứ tự"
+
+#. module: xlsx_template_report
+#. odoo-python
+#: code:addons/xlsx_template_report/models/xlsx_report.py:0
+msgid "Sheets: %s"
+msgstr "Các sheet: %s"
+
+#. module: xlsx_template_report
+#: model:ir.model.fields,field_description:xlsx_template_report.field_xlsx_report_source_column__source_id
+msgid "Source"
+msgstr "Nguồn dữ liệu"
+
+#. module: xlsx_template_report
+#: model:ir.model.fields,field_description:xlsx_template_report.field_xlsx_report_source__sql_query
+msgid "Sql Query"
+msgstr "Truy vấn SQL"
+
+#. module: xlsx_template_report
+#: model:ir.model.fields,field_description:xlsx_template_report.field_xlsx_report_run__state
+msgid "State"
+msgstr "Trạng thái"
+
+#. module: xlsx_template_report
+#: model_terms:ir.ui.view,arch_db:xlsx_template_report.xlsx_report_view_form
+msgid ""
+"Style row 1 (header) and row 2 (data) of that sheet: generated rows reuse "
+"it."
+msgstr ""
+"Định dạng dòng 1 (tiêu đề) và dòng 2 (dữ liệu) của sheet đó: các dòng sinh ra sẽ dùng lại định dạng này."
+
+#. module: xlsx_template_report
+#: model:ir.model.fields.selection,name:xlsx_template_report.selection__xlsx_report_source__aggregator__sum
+msgid "Sum"
+msgstr "Tổng"
+
+#. module: xlsx_template_report
+#: model:ir.model.fields.selection,name:xlsx_template_report.selection__xlsx_report__week_start__6
+msgid "Sunday"
+msgstr "Chủ Nhật"
+
+#. module: xlsx_template_report
+#: model:ir.model.fields.selection,name:xlsx_template_report.selection__xlsx_report_source__header_mode__name
+msgid "Technical name (stable for formulas)"
+msgstr "Tên kỹ thuật (ổn định cho công thức)"
+
+#. module: xlsx_template_report
+#: model:ir.model.fields,field_description:xlsx_template_report.field_xlsx_report__template
+#: model_terms:ir.ui.view,arch_db:xlsx_template_report.xlsx_report_view_form
+msgid "Template"
+msgstr "Mẫu Excel"
+
+#. module: xlsx_template_report
+#: model:ir.model.fields,field_description:xlsx_template_report.field_xlsx_report__template_filename
+msgid "Template Filename"
+msgstr "Tên file mẫu"
+
+#. module: xlsx_template_report
+#: model:ir.model.fields,field_description:xlsx_template_report.field_xlsx_report__template_info
+msgid "Template Info"
+msgstr "Thông tin mẫu"
+
+#. module: xlsx_template_report
+#: model:ir.model.fields.selection,name:xlsx_template_report.selection__xlsx_report_run__trigger__test
+msgid "Test"
+msgstr "Gửi thử"
+
+#. module: xlsx_template_report
+#. odoo-python
+#: code:addons/xlsx_template_report/models/xlsx_report.py:0
+msgid "The 'Run as' user has no access to the selected companies."
+msgstr "Người 'Chạy với quyền của' không có quyền trên các công ty đã chọn."
+
+#. module: xlsx_template_report
+#. odoo-python
+#: code:addons/xlsx_template_report/models/xlsx_report_source.py:0
+msgid "The 'Run as' user of this report is not an SQL report administrator."
+msgstr "Người 'Chạy với quyền của' của báo cáo này không phải Quản trị SQL."
+
+#. module: xlsx_template_report
+#. odoo-python
+#: code:addons/xlsx_template_report/models/xlsx_report.py:0
+msgid "The template must be an .xlsx file."
+msgstr "File mẫu phải là file .xlsx."
+
+#. module: xlsx_template_report
+#: model:ir.model.fields.selection,name:xlsx_template_report.selection__xlsx_report__period_type__this_month
+msgid "This month to date"
+msgstr "Tháng này đến hôm nay"
+
+#. module: xlsx_template_report
+#: model:ir.model.fields.selection,name:xlsx_template_report.selection__xlsx_report__period_type__this_quarter
+msgid "This quarter to date"
+msgstr "Quý này đến hôm nay"
+
+#. module: xlsx_template_report
+#: model:ir.model.fields.selection,name:xlsx_template_report.selection__xlsx_report__period_type__this_week
+msgid "This week to date"
+msgstr "Tuần này đến hôm nay"
+
+#. module: xlsx_template_report
+#: model:ir.model.fields.selection,name:xlsx_template_report.selection__xlsx_report__period_type__this_year
+msgid "This year to date"
+msgstr "Năm nay đến hôm nay"
+
+#. module: xlsx_template_report
+#: model:ir.model.fields.selection,name:xlsx_template_report.selection__xlsx_report__week_start__3
+msgid "Thursday"
+msgstr "Thứ Năm"
+
+#. module: xlsx_template_report
+#: model:ir.model.fields,field_description:xlsx_template_report.field_xlsx_report_source__sql_timeout
+msgid "Timeout (s)"
+msgstr "Thời gian chờ tối đa (giây)"
+
+#. module: xlsx_template_report
+#: model:ir.model.fields,field_description:xlsx_template_report.field_xlsx_report__timezone
+msgid "Timezone"
+msgstr "Múi giờ"
+
+#. module: xlsx_template_report
+#: model:ir.model.fields.selection,name:xlsx_template_report.selection__xlsx_report__period_type__today
+msgid "Today"
+msgstr "Hôm nay"
+
+#. module: xlsx_template_report
+#: model:ir.model.fields,field_description:xlsx_template_report.field_xlsx_report_run__trigger
+msgid "Trigger"
+msgstr "Kích hoạt bởi"
+
+#. module: xlsx_template_report
+#: model:ir.model.fields.selection,name:xlsx_template_report.selection__xlsx_report__week_start__1
+msgid "Tuesday"
+msgstr "Thứ Ba"
+
+#. module: xlsx_template_report
+#: model:ir.model.fields,field_description:xlsx_template_report.field_xlsx_report_source__source_type
+msgid "Type"
+msgstr "Loại"
+
+#. module: xlsx_template_report
+#. odoo-python
+#: code:addons/xlsx_template_report/models/xlsx_report_source.py:0
+msgid "Unsupported field types: %s"
+msgstr "Kiểu trường không được hỗ trợ: %s"
+
+#. module: xlsx_template_report
+#: model:ir.model.fields,help:xlsx_template_report.field_xlsx_report_source__date_granularity
+msgid "Used when grouping by a date field."
+msgstr "Dùng khi nhóm theo trường ngày."
+
+#. module: xlsx_template_report
+#: model:res.groups,name:xlsx_template_report.group_xlsx_report_user
+msgid "User: own reports"
+msgstr "Người dùng: báo cáo của mình"
+
+#. module: xlsx_template_report
+#: model:ir.model.fields.selection,name:xlsx_template_report.selection__xlsx_report__week_start__2
+msgid "Wednesday"
+msgstr "Thứ Tư"
+
+#. module: xlsx_template_report
+#: model:ir.model.fields.selection,name:xlsx_template_report.selection__xlsx_report_source__date_granularity__week
+msgid "Week"
+msgstr "Tuần"
+
+#. module: xlsx_template_report
+#: model:ir.model.fields,field_description:xlsx_template_report.field_xlsx_report__week_start
+msgid "Week Start"
+msgstr "Ngày bắt đầu tuần"
+
+#. module: xlsx_template_report
+#: model:ir.model.fields.selection,name:xlsx_template_report.selection__xlsx_report_source__date_granularity__year
+msgid "Year"
+msgstr "Năm"
+
+#. module: xlsx_template_report
+#: model:ir.model.fields.selection,name:xlsx_template_report.selection__xlsx_report__period_type__yesterday
+msgid "Yesterday"
+msgstr "Hôm qua"
+
+#. module: xlsx_template_report
+#: model_terms:ir.ui.view,arch_db:xlsx_template_report.xlsx_report_view_form
+msgid "e.g. Weekly sales by salesperson"
+msgstr "VD: Doanh số tuần theo nhân viên"
+
+#. module: xlsx_template_report
+#. odoo-python
+#: code:addons/xlsx_template_report/models/xlsx_report.py:0
+msgid "report_id"
+msgstr "report_id"
+
+#. module: xlsx_template_report
+#: model_terms:ir.ui.view,arch_db:xlsx_template_report.xlsx_report_source_view_form
+msgid "sales"
+msgstr "sales"

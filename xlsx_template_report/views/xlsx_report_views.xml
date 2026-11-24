@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- ============================ Report ============================ -->
+    <record id="xlsx_report_view_list" model="ir.ui.view">
+        <field name="name">xlsx.report.list</field>
+        <field name="model">xlsx.report</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="name"/>
+                <field name="period_type"/>
+                <field name="owner_id" widget="many2one_avatar_user"/>
+                <field name="company_id" groups="base.group_multi_company"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="xlsx_report_view_search" model="ir.ui.view">
+        <field name="name">xlsx.report.search</field>
+        <field name="model">xlsx.report</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="owner_id"/>
+                <filter name="my_reports" string="My reports" domain="[('owner_id', '=', uid)]"/>
+                <filter name="archived" string="Archived" domain="[('active', '=', False)]"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="xlsx_report_view_form" model="ir.ui.view">
+        <field name="name">xlsx.report.form</field>
+        <field name="model">xlsx.report</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="action_download" type="object" string="Download now" class="btn-primary"/>
+                </header>
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button name="action_view_runs" type="object" class="oe_stat_button" icon="fa-history">
+                            <field name="run_count" widget="statinfo" string="Runs"/>
+                        </button>
+                    </div>
+                    <widget name="web_ribbon" title="Archived" bg_color="text-bg-danger" invisible="active"/>
+                    <div class="oe_title">
+                        <label for="name"/>
+                        <h1><field name="name" placeholder="e.g. Weekly sales by salesperson"/></h1>
+                    </div>
+                    <group>
+                        <group string="Period" name="period">
+                            <field name="period_type"/>
+                            <field name="period_days" invisible="period_type != 'last_n_days'"/>
+                            <field name="week_start" invisible="period_type not in ('this_week', 'last_week')"/>
+                            <field name="timezone"/>
+                            <field name="period_preview"/>
+                        </group>
+                        <group string="Access" name="access">
+                            <field name="owner_id" widget="many2one_avatar_user"
+                                   groups="xlsx_template_report.group_xlsx_report_manager"/>
+                            <field name="owner_id" widget="many2one_avatar_user" readonly="1"
+                                   groups="!xlsx_template_report.group_xlsx_report_manager"/>
+                            <field name="company_id" groups="base.group_multi_company"/>
+                            <field name="company_ids" widget="many2many_tags" groups="base.group_multi_company"/>
+                            <field name="active" invisible="1"/>
+                        </group>
+                    </group>
+                    <div class="alert alert-info" role="alert">
+                        Data is read with the access rights of <b>Run as</b>. Everyone who receives the
+                        file sees what that user is allowed to see.
+                    </div>
+                    <notebook>
+                        <page string="Data sources" name="sources">
+                            <field name="source_ids">
+                                <list>
+                                    <field name="sequence" widget="handle"/>
+                                    <field name="name"/>
+                                    <field name="source_type"/>
+                                    <field name="model_id"/>
+                                    <field name="date_field_id"/>
+                                    <field name="row_limit" optional="hide"/>
+                                </list>
+                            </field>
+                        </page>
+                        <page string="Template" name="template">
+                            <group>
+                                <field name="template" filename="template_filename"/>
+                                <field name="template_filename" invisible="1"/>
+                                <field name="filename_pattern"/>
+                            </group>
+                            <field name="template_info" invisible="not template_info" nolabel="1"
+                                   class="text-muted" readonly="1"/>
+                            <div class="text-muted mt-3">
+                                <p><b>How templates work</b></p>
+                                <ul>
+                                    <li>Each data source fills a sheet with the same name, as an Excel table.
+                                        Use it in formulas: <code>=SUM(sales[amount_total])</code>.</li>
+                                    <li>Style row 1 (header) and row 2 (data) of that sheet: generated rows reuse it.</li>
+                                    <li>Other sheets may contain placeholders:
+                                        <code>{{report_name}}</code>, <code>{{company_name}}</code>,
+                                        <code>{{period_label}}</code>, <code>{{date_from}}</code>,
+                                        <code>{{date_to}}</code>, <code>{{generated_at}}</code>,
+                                        <code>{{run_as}}</code>, <code>{{&lt;source&gt;_count}}</code>.</li>
+                                    <li>Charts and images are removed from generated files. Use PivotTables
+                                        or conditional formatting instead.</li>
+                                </ul>
+                            </div>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <!-- ============================ Source ============================ -->
+    <record id="xlsx_report_source_view_form" model="ir.ui.view">
+        <field name="name">xlsx.report.source.form</field>
+        <field name="model">xlsx.report.source</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name" placeholder="sales"/>
+                            <field name="source_type"/>
+                            <field name="row_limit"/>
+                        </group>
+                        <group invisible="source_type == 'sql'">
+                            <field name="model_id" options="{'no_create': True}"
+                                   required="source_type != 'sql'"/>
+                            <field name="model_name" invisible="1"/>
+                            <field name="date_field_id" options="{'no_create': True}"/>
+                        </group>
+                    </group>
+                    <group invisible="source_type == 'sql' or not model_id">
+                        <field name="domain" widget="domain" options="{'model': 'model_name', 'in_dialog': True}"/>
+                    </group>
+                    <group invisible="source_type != 'search'">
+                        <field name="header_mode"/>
+                    </group>
+                    <field name="column_ids" invisible="source_type != 'search' or not model_id">
+                        <list editable="bottom">
+                            <field name="sequence" widget="handle"/>
+                            <field name="field_id" options="{'no_create': True}"
+                                   domain="[('model_id', '=', parent.model_id)]"/>
+                            <field name="header" placeholder="(default)"/>
+                        </list>
+                    </field>
+                    <group invisible="source_type != 'group'">
+                        <field name="groupby_ids" widget="many2many_tags" options="{'no_create': True}"/>
+                        <field name="date_granularity"/>
+                        <field name="measure_ids" widget="many2many_tags" options="{'no_create': True}"/>
+                        <field name="aggregator"/>
+                        <field name="header_mode"/>
+                    </group>
+                    <group invisible="source_type != 'sql'"
+                           groups="xlsx_template_report.group_xlsx_report_sql">
+                        <div class="alert alert-warning" role="alert" colspan="2">
+                            SQL ignores record rules and multi-company restrictions. Everyone who
+                            receives the report sees everything this query returns.
+                        </div>
+                        <field name="sql_query" widget="code" options="{'mode': 'sql'}"/>
+                        <field name="sql_timeout"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- ============================== Run ============================= -->
+    <record id="xlsx_report_run_view_list" model="ir.ui.view">
+        <field name="name">xlsx.report.run.list</field>
+        <field name="model">xlsx.report.run</field>
+        <field name="arch" type="xml">
+            <list create="0" edit="0" decoration-danger="state == 'failed'" decoration-muted="state == 'running'">
+                <field name="create_date" string="Date"/>
+                <field name="report_id"/>
+                <field name="trigger"/>
+                <field name="state" widget="badge" decoration-success="state == 'done'"
+                       decoration-danger="state == 'failed'"/>
+                <field name="row_count"/>
+                <field name="duration"/>
+                <field name="attachment_id" column_invisible="1"/>
+                <button name="action_download" type="object" icon="fa-download" title="Download"
+                        invisible="not attachment_id"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="xlsx_report_run_view_form" model="ir.ui.view">
+        <field name="name">xlsx.report.run.form</field>
+        <field name="model">xlsx.report.run</field>
+        <field name="arch" type="xml">
+            <form create="0" edit="0">
+                <header>
+                    <button name="action_download" type="object" string="Download" invisible="not attachment_id"/>
+                    <field name="state" widget="statusbar"/>
+                </header>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="report_id"/>
+                            <field name="trigger"/>
+                            <field name="create_date" string="Date"/>
+                        </group>
+                        <group>
+                            <field name="row_count"/>
+                            <field name="file_size"/>
+                            <field name="duration"/>
+                            <field name="attachment_id"/>
+                        </group>
+                    </group>
+                    <group string="Delivery" invisible="not channel_log">
+                        <field name="channel_log" nolabel="1" colspan="2"/>
+                    </group>
+                    <group string="Error" invisible="not error_message">
+                        <field name="error_message" nolabel="1" colspan="2"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- ============================ Actions ============================ -->
+    <record id="action_xlsx_report" model="ir.actions.act_window">
+        <field name="name">Excel Reports</field>
+        <field name="res_model">xlsx.report</field>
+        <field name="view_mode">list,form</field>
+        <field name="context">{'search_default_my_reports': 1}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Create your first Excel report</p>
+            <p>Design the report in Excel, choose the data, and download it filled in.</p>
+        </field>
+    </record>
+
+    <record id="action_xlsx_report_run" model="ir.actions.act_window">
+        <field name="name">Report runs</field>
+        <field name="res_model">xlsx.report.run</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <!-- ============================= Menus ============================= -->
+    <menuitem id="menu_xlsx_report_root" name="Excel Reports" sequence="90"
+              groups="group_xlsx_report_user"/>
+    <menuitem id="menu_xlsx_report" parent="menu_xlsx_report_root" action="action_xlsx_report" sequence="10"/>
+    <menuitem id="menu_xlsx_report_run" parent="menu_xlsx_report_root" action="action_xlsx_report_run" sequence="20"/>
+    <menuitem id="menu_xlsx_report_config" name="Configuration" parent="menu_xlsx_report_root"
+              sequence="90" groups="group_xlsx_report_manager"/>
+</odoo>

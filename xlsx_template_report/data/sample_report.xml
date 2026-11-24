@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- A ready-to-run example so new users can press "Download now" right after install.
+     Only uses res.partner, so it works on any database. -->
+<odoo noupdate="1">
+    <record id="sample_report_contacts" model="xlsx.report">
+        <field name="name">Sample: Contacts overview</field>
+        <field name="owner_id" ref="base.user_admin"/>
+        <field name="period_type">this_year</field>
+        <field name="timezone">UTC</field>
+        <field name="template" type="bytes" file="xlsx_template_report/static/samples/contacts_overview.xlsx"/>
+        <field name="template_filename">contacts_overview.xlsx</field>
+        <field name="filename_pattern">Contacts {date_from} - {date_to}</field>
+    </record>
+
+    <record id="sample_report_contacts_source" model="xlsx.report.source">
+        <field name="report_id" ref="sample_report_contacts"/>
+        <field name="sequence">1</field>
+        <field name="name">contacts</field>
+        <field name="source_type">search</field>
+        <field name="model_id" ref="base.model_res_partner"/>
+        <field name="date_field_id" ref="base.field_res_partner__create_date"/>
+        <field name="domain">[]</field>
+        <field name="column_ids" eval="[
+            Command.create({'sequence': 1, 'field_id': ref('base.field_res_partner__name')}),
+            Command.create({'sequence': 2, 'field_id': ref('base.field_res_partner__email')}),
+            Command.create({'sequence': 3, 'field_id': ref('base.field_res_partner__country_id')}),
+            Command.create({'sequence': 4, 'field_id': ref('base.field_res_partner__is_company')}),
+            Command.create({'sequence': 5, 'field_id': ref('base.field_res_partner__create_date')}),
+        ]"/>
+    </record>
+
+    <record id="sample_report_contacts_by_country" model="xlsx.report.source">
+        <field name="report_id" ref="sample_report_contacts"/>
+        <field name="sequence">2</field>
+        <field name="name">by_country</field>
+        <field name="source_type">group</field>
+        <field name="model_id" ref="base.model_res_partner"/>
+        <field name="date_field_id" ref="base.field_res_partner__create_date"/>
+        <field name="domain">[]</field>
+        <field name="groupby_ids" eval="[Command.set([ref('base.field_res_partner__country_id')])]"/>
+    </record>
+</odoo>
