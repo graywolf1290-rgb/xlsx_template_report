@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="rule_access_xlsx_report_own" model="ir.rule">
+        <field name="name">Excel report: own reports</field>
+        <field name="model_id" ref="model_xlsx_report"/>
+        <field name="domain_force">[('owner_id', '=', user.id)]</field>
+        <field name="groups" eval="[(4, ref('group_xlsx_report_user'))]"/>
+        <field name="perm_read" eval="True"/>
+        <field name="perm_write" eval="True"/>
+        <field name="perm_create" eval="True"/>
+        <field name="perm_unlink" eval="True"/>
+    </record>
+
+    <record id="rule_access_xlsx_report_all" model="ir.rule">
+        <field name="name">Excel report: all reports</field>
+        <field name="model_id" ref="model_xlsx_report"/>
+        <field name="domain_force">[(1, '=', 1)]</field>
+        <field name="groups" eval="[(4, ref('group_xlsx_report_manager'))]"/>
+        <field name="perm_read" eval="True"/>
+        <field name="perm_write" eval="True"/>
+        <field name="perm_create" eval="True"/>
+        <field name="perm_unlink" eval="True"/>
+    </record>
+
+    <record id="rule_xlsx_report_company_rule" model="ir.rule">
+        <field name="name">Excel report: multi-company</field>
+        <field name="model_id" ref="model_xlsx_report"/>
+        <field name="domain_force">[('company_id', 'in', company_ids)]</field>
+        <field name="perm_read" eval="True"/>
+        <field name="perm_write" eval="True"/>
+        <field name="perm_create" eval="True"/>
+        <field name="perm_unlink" eval="True"/>
+    </record>
+
+    <record id="rule_access_xlsx_report_source_own" model="ir.rule">
+        <field name="name">Excel report source: own reports</field>
+        <field name="model_id" ref="model_xlsx_report_source"/>
+        <field name="domain_force">[('report_id.owner_id', '=', user.id)]</field>
+        <field name="groups" eval="[(4, ref('group_xlsx_report_user'))]"/>
+        <field name="perm_read" eval="True"/>
+        <field name="perm_write" eval="True"/>
+        <field name="perm_create" eval="True"/>
+        <field name="perm_unlink" eval="True"/>
+    </record>
+
+    <record id="rule_access_xlsx_report_source_all" model="ir.rule">
+        <field name="name">Excel report source: all</field>
+        <field name="model_id" ref="model_xlsx_report_source"/>
+        <field name="domain_force">[(1, '=', 1)]</field>
+        <field name="groups" eval="[(4, ref('group_xlsx_report_manager'))]"/>
+        <field name="perm_read" eval="True"/>
+        <field name="perm_write" eval="True"/>
+        <field name="perm_create" eval="True"/>
+        <field name="perm_unlink" eval="True"/>
+    </record>
+
+    <record id="rule_access_xlsx_report_column_own" model="ir.rule">
+        <field name="name">Excel report column: own reports</field>
+        <field name="model_id" ref="model_xlsx_report_source_column"/>
+        <field name="domain_force">[('source_id.report_id.owner_id', '=', user.id)]</field>
+        <field name="groups" eval="[(4, ref('group_xlsx_report_user'))]"/>
+        <field name="perm_read" eval="True"/>
+        <field name="perm_write" eval="True"/>
+        <field name="perm_create" eval="True"/>
+        <field name="perm_unlink" eval="True"/>
+    </record>
+
+    <record id="rule_access_xlsx_report_column_all" model="ir.rule">
+        <field name="name">Excel report column: all</field>
+        <field name="model_id" ref="model_xlsx_report_source_column"/>
+        <field name="domain_force">[(1, '=', 1)]</field>
+        <field name="groups" eval="[(4, ref('group_xlsx_report_manager'))]"/>
+        <field name="perm_read" eval="True"/>
+        <field name="perm_write" eval="True"/>
+        <field name="perm_create" eval="True"/>
+        <field name="perm_unlink" eval="True"/>
+    </record>
+
+    <record id="rule_access_xlsx_report_run_own" model="ir.rule">
+        <field name="name">Excel report run: own reports</field>
+        <field name="model_id" ref="model_xlsx_report_run"/>
+        <field name="domain_force">[('report_id.owner_id', '=', user.id)]</field>
+        <field name="groups" eval="[(4, ref('group_xlsx_report_user'))]"/>
+        <field name="perm_read" eval="True"/>
+        <field name="perm_write" eval="False"/>
+        <field name="perm_create" eval="False"/>
+        <field name="perm_unlink" eval="False"/>
+    </record>
+
+    <record id="rule_access_xlsx_report_run_all" model="ir.rule">
+        <field name="name">Excel report run: all</field>
+        <field name="model_id" ref="model_xlsx_report_run"/>
+        <field name="domain_force">[(1, '=', 1)]</field>
+        <field name="groups" eval="[(4, ref('group_xlsx_report_manager'))]"/>
+        <field name="perm_read" eval="True"/>
+        <field name="perm_write" eval="False"/>
+        <field name="perm_create" eval="False"/>
+        <field name="perm_unlink" eval="True"/>
+    </record>
+</odoo>

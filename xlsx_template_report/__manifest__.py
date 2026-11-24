@@ -3,7 +3,7 @@
     "name": "Excel Template Reports",
     "summary": "Design reports in your own Excel file: Odoo fills in the data (free). "
                "Scheduling and Email/Telegram delivery: Excel Template Reports Pro",
-    "version": "20.0.1.0.0",
+    "version": "19.0.1.0.0",
     "category": "Productivity",
     "author": "Gray Bob",
     "support": "gray.wolf1290@gmail.com",
@@ -13,7 +13,7 @@
     "external_dependencies": {"python": ["openpyxl"]},
     "data": [
         "security/security.xml",
-        "security/ir.access.csv",
+        "security/ir.model.access.csv", "security/ir_rules.xml",
         "views/xlsx_report_views.xml",
         "data/sample_report.xml",
     ],

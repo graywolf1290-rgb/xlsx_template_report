@@ -7,7 +7,7 @@
         <field name="owner_id" ref="base.user_admin"/>
         <field name="period_type">this_year</field>
         <field name="timezone">UTC</field>
-        <field name="template" type="bytes" file="xlsx_template_report/static/samples/contacts_overview.xlsx"/>
+        <field name="template" type="base64" file="xlsx_template_report/static/samples/contacts_overview.xlsx"/>
         <field name="template_filename">contacts_overview.xlsx</field>
         <field name="filename_pattern">Contacts {date_from} - {date_to}</field>
     </record>
@@ -21,11 +21,11 @@
         <field name="date_field_id" ref="base.field_res_partner__create_date"/>
         <field name="domain">[]</field>
         <field name="column_ids" eval="[
-            Command.create({'sequence': 1, 'field_id': ref('base.field_res_partner__name')}),
-            Command.create({'sequence': 2, 'field_id': ref('base.field_res_partner__email')}),
-            Command.create({'sequence': 3, 'field_id': ref('base.field_res_partner__country_id')}),
-            Command.create({'sequence': 4, 'field_id': ref('base.field_res_partner__is_company')}),
-            Command.create({'sequence': 5, 'field_id': ref('base.field_res_partner__create_date')}),
+            (0, 0, {'sequence': 1, 'field_id': ref('base.field_res_partner__name')}),
+            (0, 0, {'sequence': 2, 'field_id': ref('base.field_res_partner__email')}),
+            (0, 0, {'sequence': 3, 'field_id': ref('base.field_res_partner__country_id')}),
+            (0, 0, {'sequence': 4, 'field_id': ref('base.field_res_partner__is_company')}),
+            (0, 0, {'sequence': 5, 'field_id': ref('base.field_res_partner__create_date')}),
         ]"/>
     </record>
 
@@ -37,6 +37,6 @@
         <field name="model_id" ref="base.model_res_partner"/>
         <field name="date_field_id" ref="base.field_res_partner__create_date"/>
         <field name="domain">[]</field>
-        <field name="groupby_ids" eval="[Command.set([ref('base.field_res_partner__country_id')])]"/>
+        <field name="groupby_ids" eval="[(6, 0, [ref('base.field_res_partner__country_id')])]"/>
     </record>
 </odoo>
