@@ -9,7 +9,7 @@ from odoo.exceptions import AccessError, UserError, ValidationError
 from odoo.tools.safe_eval import safe_eval
 
 from .. import engine
-from .xlsx_report import GROUP_SQL
+from .xlsx_report import GROUP_SQL, RECIPIENT_PARTNER_KEY, RECIPIENT_USER_KEY
 
 UNSUPPORTED_FIELD_TYPES = ("binary", "image", "properties", "properties_definition", "json")
 SQL_START_RE = re.compile(r"^\s*(select|with)\b", re.IGNORECASE)
@@ -34,7 +34,10 @@ class XlsxReportSource(models.Model):
     model_id = fields.Many2one("ir.model", string="Model", ondelete="cascade",
                                domain=[("transient", "=", False)])
     model_name = fields.Char(related="model_id.model", string="Model name")
-    domain = fields.Char(default="[]")
+    domain = fields.Char(
+        default="[]",
+        help="Variables: uid, user, date_from, date_to, company_ids, and for per-recipient "
+             "delivery (Pro) recipient_partner_id, recipient_user_id.")
     date_field_id = fields.Many2one(
         "ir.model.fields", string="Filter period on",
         domain="[('model_id', '=', model_id), ('ttype', 'in', ('date', 'datetime')), ('store', '=', True)]",
@@ -63,7 +66,8 @@ class XlsxReportSource(models.Model):
 
     sql_query = fields.Text(
         groups=GROUP_SQL,
-        help="Read-only SELECT. Parameters: %(date_from)s, %(date_to)s, %(company_ids)s. "
+        help="Read-only SELECT. Parameters: %(date_from)s, %(date_to)s, %(company_ids)s, "
+             "%(recipient_partner_id)s, %(recipient_user_id)s (NULL unless per-recipient). "
              "Write a literal % as %%. SQL ignores record rules: anyone receiving the report "
              "sees everything the query returns.")
     row_limit = fields.Integer(default=50000, required=True)
@@ -145,6 +149,10 @@ class XlsxReportSource(models.Model):
             "date_from": period.date_from,
             "date_to": period.date_to,
             "company_ids": Model.env.companies.ids,
+            # Per-recipient reports (Pro): ids of the person the file is for,
+            # False when the report is rendered for everyone.
+            "recipient_partner_id": Model.env.context.get(RECIPIENT_PARTNER_KEY) or False,
+            "recipient_user_id": Model.env.context.get(RECIPIENT_USER_KEY) or False,
             "datetime": datetime,
             "timedelta": timedelta,
         }
@@ -258,6 +266,8 @@ class XlsxReportSource(models.Model):
             "date_from": period.date_from,
             "date_to": period.date_to,
             "company_ids": tuple(env.companies.ids) or (0,),
+            "recipient_partner_id": env.context.get(RECIPIENT_PARTNER_KEY) or None,
+            "recipient_user_id": env.context.get(RECIPIENT_USER_KEY) or None,
         }
         # A separate cursor so the READ ONLY transaction and the timeout never
         # affect the main transaction. PostgreSQL itself rejects any write.

@@ -3,7 +3,7 @@
     "name": "Excel Template Reports",
     "summary": "Design reports in your own Excel file: Odoo fills in the data (free). "
                "Scheduling and Email/Telegram delivery: Excel Template Reports Pro",
-    "version": "19.0.1.0.0",
+    "version": "19.0.1.1.0",
     "category": "Productivity",
     "author": "Gray Bob",
     "support": "gray.wolf1290@gmail.com",
