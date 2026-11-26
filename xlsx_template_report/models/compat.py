@@ -28,6 +28,20 @@ def binary_bytes(value):
     return base64.b64decode(value)
 
 
+def attachment_bytes(attachment):
+    """Content of an ``ir.attachment``.
+
+    Unlike other Binary fields, ``raw`` is already raw bytes on Odoo <= 19 (never
+    base64), so do not use :func:`binary_bytes` for it. Odoo 20 wraps it in a
+    ``BinaryValue``.
+    """
+    value = attachment.raw
+    if not value:
+        return b""
+    content = getattr(value, "content", None)
+    return bytes(content if content is not None else value)
+
+
 def get_config_str(env, key):
     params = env["ir.config_parameter"].sudo()
     if hasattr(params, "get_str"):  # Odoo 20
