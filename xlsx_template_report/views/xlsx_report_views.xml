@@ -99,7 +99,8 @@
                                         <code>{{report_name}}</code>, <code>{{company_name}}</code>,
                                         <code>{{period_label}}</code>, <code>{{date_from}}</code>,
                                         <code>{{date_to}}</code>, <code>{{generated_at}}</code>,
-                                        <code>{{run_as}}</code>, <code>{{&lt;source&gt;_count}}</code>.</li>
+                                        <code>{{run_as}}</code>, <code>{{recipient_name}}</code>,
+                                        <code>{{&lt;source&gt;_count}}</code>.</li>
                                     <li>Charts and images are removed from generated files. Use PivotTables
                                         or conditional formatting instead.</li>
                                 </ul>
