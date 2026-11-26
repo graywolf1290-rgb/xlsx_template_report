@@ -18,6 +18,9 @@ XLSX_MIMETYPE = "application/vnd.openxmlformats-officedocument.spreadsheetml.she
 GROUP_USER = "xlsx_template_report.group_xlsx_report_user"
 GROUP_MANAGER = "xlsx_template_report.group_xlsx_report_manager"
 GROUP_SQL = "xlsx_template_report.group_xlsx_report_sql"
+# Context keys set while rendering a file for one recipient (used by the Pro addon).
+RECIPIENT_PARTNER_KEY = "xlsx_recipient_partner_id"
+RECIPIENT_USER_KEY = "xlsx_recipient_user_id"
 
 WEEKDAYS = [("0", "Monday"), ("1", "Tuesday"), ("2", "Wednesday"), ("3", "Thursday"),
             ("4", "Friday"), ("5", "Saturday"), ("6", "Sunday")]
@@ -152,19 +155,29 @@ class XlsxReport(models.Model):
                                      week_start=int(self.week_start or 0),
                                      n_days=self.period_days or 7)
 
-    def _get_data_env(self):
-        """Environment used to read data: the owner's rights, never superuser."""
+    def _get_data_env(self, recipient=None):
+        """Environment used to read data: the owner's rights, never superuser.
+
+        ``recipient`` (a ``res.partner``) only adds its ids to the context, so data
+        source domains can filter on ``recipient_partner_id`` / ``recipient_user_id``.
+        It never grants more rights than the owner has.
+        """
         self.ensure_one()
         owner = self.owner_id
         companies = (self.company_ids or self.company_id) & owner.company_ids
         if not companies:
             raise UserError(_("The 'Run as' user has no access to the selected companies."))
         main_company = self.company_id if self.company_id in companies else companies[0]
-        return self.env(
-            user=owner.id, su=False,
-            context=dict(self.env.context, tz=self.timezone, lang=owner.lang,
-                         allowed_company_ids=[main_company.id] + (companies - main_company).ids),
-        )
+        context = dict(self.env.context, tz=self.timezone, lang=owner.lang,
+                       allowed_company_ids=[main_company.id] + (companies - main_company).ids)
+        context.pop(RECIPIENT_PARTNER_KEY, None)
+        context.pop(RECIPIENT_USER_KEY, None)
+        if recipient:
+            user = self.env["res.users"].sudo().with_context(active_test=False).search(
+                [("partner_id", "=", recipient.id)], limit=1)
+            context[RECIPIENT_PARTNER_KEY] = recipient.id
+            context[RECIPIENT_USER_KEY] = user.id or False
+        return self.env(user=owner.id, su=False, context=context)
 
     def _build_filename(self, period):
         self.ensure_one()
@@ -183,13 +196,17 @@ class XlsxReport(models.Model):
             name = name.replace(char, "-")
         return name.strip()[:150] + ".xlsx"
 
-    def _render(self):
-        """Return ``(content, filename, row_count, warnings)``."""
+    def _render(self, recipient=None):
+        """Return ``(content, filename, row_count, warnings)``.
+
+        ``recipient`` (a ``res.partner``): render the file for that person only,
+        see :meth:`_get_data_env`.
+        """
         self.ensure_one()
         if not self.source_ids and not self.template:
             raise UserError(_("Add a template or at least one data source."))
         period = self._get_period()
-        data_env = self._get_data_env()
+        data_env = self._get_data_env(recipient)
         tables, row_count = {}, 0
         for source in self.source_ids.sorted("sequence"):
             data = source._fetch(data_env, period)
@@ -205,6 +222,7 @@ class XlsxReport(models.Model):
             "period_label": period.label,
             "generated_at": datetime.now(tz).replace(tzinfo=None, microsecond=0),
             "run_as": self.owner_id.name,
+            "recipient_name": recipient.sudo().name if recipient else "",
         }
         for name, data in tables.items():
             values["%s_count" % name] = len(data.rows)

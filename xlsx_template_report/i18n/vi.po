@@ -6,31 +6,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 20.0-20261112\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-23 08:18+0000\n"
-"PO-Revision-Date: 2026-11-23 08:18+0000\n"
+"POT-Creation-Date: 2026-11-25 18:01+0000\n"
+"PO-Revision-Date: 2026-11-25 18:01+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: \n"
-
-#. module: xlsx_template_report
-#: model:ir.module.module,description:base.module_xlsx_template_report
-msgid ""
-"# Excel Template Reports\n"
-"\n"
-"Design a report in your own Excel file — colours, number formats, formulas,\n"
-"PivotTables — and let Odoo fill in the data.\n"
-"\n"
-"* Each data source fills a sheet with the same name, as an Excel table:\n"
-"  `=SUM(sales[amount_total])` keeps working whatever the number of rows.\n"
-"* Records, grouped totals, or read-only SQL (administrators only).\n"
-"* Relative periods: yesterday, last week, month to date, last quarter...\n"
-"* Data is always read with the access rights of the \"Run as\" user.\n"
-"\n"
-"Scheduling and delivery by email or Telegram: **Excel Template Reports Pro**.\n"
-msgstr ""
 
 #. module: xlsx_template_report
 #: model_terms:ir.ui.view,arch_db:xlsx_template_report.xlsx_report_source_view_form
@@ -41,6 +24,52 @@ msgstr "(mặc định)"
 #: model_terms:ir.ui.view,arch_db:xlsx_template_report.xlsx_report_view_form
 msgid "<b>How templates work</b>"
 msgstr "<b>Cách dùng file mẫu</b>"
+
+#. module: xlsx_template_report
+#: model:ir.module.module,description:base.module_xlsx_template_report
+msgid ""
+"=========================\n"
+"Excel Template Reports\n"
+"=========================\n"
+"\n"
+"Design a report in your own Excel file and let Odoo fill in the data. LGPL-3, Gray Bob.\n"
+"Scheduling and delivery by email or Telegram are in ``xlsx_template_report_pro``.\n"
+"The store page for Odoo Apps is ``static/description/index.html``.\n"
+"\n"
+"Layout\n"
+"======\n"
+"\n"
+"* ``engine/``: pure Python (no ``odoo`` import), shared by every Odoo version.\n"
+"\n"
+"  * ``render.py``: fills a template. Each data source writes a sheet and an Excel table with the\n"
+"    same name; other sheets only get ``{{placeholder}}`` replacements, rows are never inserted, so\n"
+"    user formulas such as ``=SUM(sales[amount_total])`` stay valid. Text starting with ``=`` is\n"
+"    written as text (no formula injection). ``fix_core_properties()`` repairs the\n"
+"    ``...+00:00Z`` dates written by openpyxl 3.1.2 (Odoo 18-20), which make Excel repair the file.\n"
+"  * ``periods.py``: relative periods (yesterday, last week, month to date, ...).\n"
+"  * ``schedule.py``: next run of a daily / weekly / monthly schedule in a timezone.\n"
+"\n"
+"* ``models/xlsx_report.py``: the report; data is always read with the rights of the \"Run as\"\n"
+"  user, never as superuser. ``_deliver()`` is the hook the Pro addon overrides.\n"
+"* ``models/xlsx_report_source.py``: data sources (records with ordered columns, grouped totals with\n"
+"  ``_read_group``, read-only SQL for the SQL administrator group, in its own cursor with a timeout).\n"
+"* ``models/compat.py``: the few API differences between Odoo 17, 18, 19 and 20.\n"
+"* ``data/sample_report.xml``: a ready-to-run \"Contacts overview\" report.\n"
+"\n"
+"Notes\n"
+"=====\n"
+"\n"
+"* The web client reads binaries with ``bin_size=True``: use ``_template_bytes()``, never the field.\n"
+"* Odoo 17 does not ship ``openpyxl``: ``pip install openpyxl``. Odoo 18 and later include it.\n"
+"\n"
+"Tests\n"
+"=====\n"
+"\n"
+"::\n"
+"\n"
+"    odoo -d test -i xlsx_template_report --test-enable --test-tags /xlsx_template_report --stop-after-init\n"
+"    python -m pytest engine/tests        # the engine alone, without Odoo\n"
+msgstr ""
 
 #. module: xlsx_template_report
 #: model_terms:ir.ui.view,arch_db:xlsx_template_report.xlsx_report_view_form
@@ -696,9 +725,10 @@ msgid ""
 "                                        <code>{{report_name}}</code>, <code>{{company_name}}</code>,\n"
 "                                        <code>{{period_label}}</code>, <code>{{date_from}}</code>,\n"
 "                                        <code>{{date_to}}</code>, <code>{{generated_at}}</code>,\n"
-"                                        <code>{{run_as}}</code>, <code>{{&lt;source&gt;_count}}</code>."
+"                                        <code>{{run_as}}</code>, <code>{{recipient_name}}</code>,\n"
+"                                        <code>{{&lt;source&gt;_count}}</code>."
 msgstr ""
-"Các sheet khác có thể chứa placeholder: <code>{{report_name}}</code>, <code>{{company_name}}</code>, <code>{{period_label}}</code>, <code>{{date_from}}</code>, <code>{{date_to}}</code>, <code>{{generated_at}}</code>, <code>{{run_as}}</code>, <code>{{&lt;source&gt;_count}}</code>."
+"Các sheet khác có thể chứa placeholder: <code>{{report_name}}</code>, <code>{{company_name}}</code>, <code>{{period_label}}</code>, <code>{{date_from}}</code>, <code>{{date_to}}</code>, <code>{{generated_at}}</code>, <code>{{run_as}}</code>, <code>{{recipient_name}}</code>, <code>{{&lt;source&gt;_count}}</code>."
 
 #. module: xlsx_template_report
 #: model:ir.model.fields,field_description:xlsx_template_report.field_xlsx_report__period_type
@@ -725,11 +755,12 @@ msgstr "Quý"
 #. module: xlsx_template_report
 #: model:ir.model.fields,help:xlsx_template_report.field_xlsx_report_source__sql_query
 msgid ""
-"Read-only SELECT. Parameters: %(date_from)s, %(date_to)s, %(company_ids)s. "
-"Write a literal % as %%. SQL ignores record rules: anyone receiving the "
+"Read-only SELECT. Parameters: %(date_from)s, %(date_to)s, %(company_ids)s, "
+"%(recipient_partner_id)s, %(recipient_user_id)s (NULL unless per-recipient)."
+" Write a literal % as %%. SQL ignores record rules: anyone receiving the "
 "report sees everything the query returns."
 msgstr ""
-"Chỉ cho phép SELECT (chỉ đọc). Tham số: %(date_from)s, %(date_to)s, %(company_ids)s. Viết ký tự % thành %%. SQL bỏ qua quy tắc phân quyền: ai nhận báo cáo cũng thấy mọi thứ truy vấn trả về."
+"Chỉ SELECT (chỉ đọc). Tham số: %(date_from)s, %(date_to)s, %(company_ids)s, %(recipient_partner_id)s, %(recipient_user_id)s (NULL nếu không gửi theo từng người nhận). Viết dấu % thành %%. SQL bỏ qua quy tắc phân quyền: ai nhận báo cáo cũng thấy toàn bộ kết quả truy vấn."
 
 #. module: xlsx_template_report
 #: model:ir.model.fields.selection,name:xlsx_template_report.selection__xlsx_report_source__source_type__search
@@ -988,6 +1019,14 @@ msgid "User: own reports"
 msgstr "Người dùng: báo cáo của mình"
 
 #. module: xlsx_template_report
+#: model:ir.model.fields,help:xlsx_template_report.field_xlsx_report_source__domain
+msgid ""
+"Variables: uid, user, date_from, date_to, company_ids, and for per-recipient"
+" delivery (Pro) recipient_partner_id, recipient_user_id."
+msgstr ""
+"Biến: uid, user, date_from, date_to, company_ids, và khi gửi theo từng người nhận (Pro) recipient_partner_id, recipient_user_id."
+
+#. module: xlsx_template_report
 #: model:ir.model.fields.selection,name:xlsx_template_report.selection__xlsx_report__week_start__2
 msgid "Wednesday"
 msgstr "Thứ Tư"
@@ -1016,12 +1055,6 @@ msgstr "Hôm qua"
 #: model_terms:ir.ui.view,arch_db:xlsx_template_report.xlsx_report_view_form
 msgid "e.g. Weekly sales by salesperson"
 msgstr "VD: Doanh số tuần theo nhân viên"
-
-#. module: xlsx_template_report
-#. odoo-python
-#: code:addons/xlsx_template_report/models/xlsx_report.py:0
-msgid "report_id"
-msgstr "report_id"
 
 #. module: xlsx_template_report
 #: model_terms:ir.ui.view,arch_db:xlsx_template_report.xlsx_report_source_view_form
